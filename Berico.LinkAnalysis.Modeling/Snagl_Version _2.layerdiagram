@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="e8ec362f-7945-4a09-a2df-45b2fae4e828" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="2e37e8ad-1e9c-4b11-bb74-e4cf3e2ea788" name="SnagL Version 2">
+      <childLayers>
+        <layer Id="1695805b-f6a8-482c-a08a-48500445d289" name="Berico.LinkAnalysis.Model">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="ceeb8da2-0019-40f0-8434-8f0a98b928ea" direction="Bidirectional">
+              <layerMoniker Id="322a6eb2-2139-469f-a13b-dd36774961c0" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="322a6eb2-2139-469f-a13b-dd36774961c0" name="Berico.LinkAnalysis.ViewModel">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="bf98a2e6-7982-420a-b6aa-1af56303a205" direction="Bidirectional">
+              <layerMoniker Id="d6ab450a-c8bd-4fdf-9e87-3b0fa84896d1" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="d6ab450a-c8bd-4fdf-9e87-3b0fa84896d1" name="Berico.LinkAnalysis.View">
+          <childLayers>
+            <layer Id="b535b70a-53cd-4990-8ecc-5b6a6a0bf3ef" name="Berico.Windows.Controls" />
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

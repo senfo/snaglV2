@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Berico.SnagL.UI.Edge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             >
+    
+    <Grid x:Name="LayoutRoot">
+        <Line x:Name="Line" Stroke="Black" StrokeThickness="1" X1="5" Y1="5" X2="100" Y2="100" />
+        <Grid Background="White" Height="{Binding ActualHeight, ElementName=Label}" Width="{Binding ActualWidth, ElementName=Label}" >
+            <TextBlock x:Name="Label" HorizontalAlignment="Center" TextWrapping="Wrap" MaxWidth="100"  />
+        </Grid>
+    </Grid>
+    
+</UserControl>

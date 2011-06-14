@@ -1,0 +1,696 @@
+﻿<UserControl x:Class="Berico.SnagL.Infrastructure.Controls.AttributeSimilarityPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.SL4"             
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:berico="clr-namespace:Berico.Windows.Controls;assembly=Berico.Windows.Controls"
+    xmlns:ui="clr-namespace:Berico.SnagL.UI"  
+    ui:VisualStates.CurrentState="{Binding CurrentState}"             
+    mc:Ignorable="d"
+    Height="Auto"
+    d:DesignWidth="200">
+
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="LostFocus">
+            <cmd:EventToCommand Command="{Binding LostFocusCommand}" PassEventArgsToCommand="False"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="GotFocus">
+            <cmd:EventToCommand Command="{Binding GotFocusCommand}" PassEventArgsToCommand="False"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    
+    <UserControl.Resources>
+        <Style x:Key="ExpanderStyle1" TargetType="toolkit:Expander">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="toolkit:Expander">
+                        <Grid Background="Transparent">
+                            <Grid.Resources>
+                                <LinearGradientBrush x:Key="ExpanderArrowFill" EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#FFBFBFBF" Offset="0.5"/>
+                                    <GradientStop Color="#FF878787" Offset="1"/>
+                                </LinearGradientBrush>
+                                <LinearGradientBrush x:Key="ExpanderArrowHoverFill" EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F8FE" Offset="0"/>
+                                    <GradientStop Color="#FFE0F3FE" Offset="0.3"/>
+                                    <GradientStop Color="#FF6FA7C5" Offset="1"/>
+                                </LinearGradientBrush>
+                                <LinearGradientBrush x:Key="ExpanderArrowPressedFill" EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFDCF0FA" Offset="0"/>
+                                    <GradientStop Color="#FFC5E6F7" Offset="0.2"/>
+                                    <GradientStop Color="#FF5690D0" Offset="1"/>
+                                </LinearGradientBrush>
+                                <ControlTemplate x:Key="ExpanderDownHeaderTemplate" TargetType="ToggleButton">
+                                    <Grid Background="Transparent">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CheckStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="00:00:00"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Checked" />
+                                                <VisualState x:Name="Unchecked">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#7FFF0000" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="BackgroundEllipse"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="MouseOver"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="Pressed"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <!--<ColorAnimation BeginTime="0" To="#FF3C7FB1" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+														<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+															<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowHoverFill}"/>
+														</ObjectAnimationUsingKeyFrames>
+														<ColorAnimation BeginTime="0" To="#222" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>-->
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <!--<ColorAnimation BeginTime="0" To="#FF526C7B" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+														<DoubleAnimation BeginTime="0" To="1.5" Storyboard.TargetProperty="StrokeThickness" Storyboard.TargetName="circle"/>
+														<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+															<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowPressedFill}"/>
+														</ObjectAnimationUsingKeyFrames>
+														<ColorAnimation BeginTime="0" To="#FF003366" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>-->
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Focused">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unfocused"/>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border Padding="{TemplateBinding Padding}" BorderBrush="#FFA5A5A5" BorderThickness="1" Height="25">
+                                            <Border.Background>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FFFFFFFF"/>
+                                                    <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                                                    <GradientStop Color="#FFE0E0E0" Offset="0.49"/>
+                                                    <GradientStop Color="#FFE0E0E1" Offset="0.50"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Grid Background="Transparent">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="19"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="10" Margin="3,0,0,0">
+                                                    <!-- Background ellipse which is used to define the overall button color -->
+                                                    <Ellipse x:Name="BackgroundEllipse" Width="Auto" Height="Auto" Stretch="Fill">
+                                                        <Ellipse.Fill>
+                                                            <SolidColorBrush x:Name="BackgroundColor" Color="#7F00FF12" />
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+
+                                                    <Ellipse x:Name="GlowEllipse" Width="Auto" Height="Auto" Stretch="Fill" Stroke="Black" StrokeThickness="0.5" >
+                                                        <Ellipse.Fill>
+                                                            <RadialGradientBrush GradientOrigin="0.5,0.655">
+                                                                <RadialGradientBrush.RelativeTransform>
+                                                                    <TransformGroup>
+                                                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                                                        <SkewTransform AngleX="0" AngleY="0"/>
+                                                                        <RotateTransform Angle="0"/>
+                                                                        <TranslateTransform X="0.003" Y="0.336"/>
+                                                                    </TransformGroup>
+                                                                </RadialGradientBrush.RelativeTransform>
+                                                                <GradientStop Color="#A5FFFFFF" Offset="0"/>
+                                                                <GradientStop Color="#26FFFFFF" Offset="0.991"/>
+                                                            </RadialGradientBrush>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+
+                                                    <!-- This path represents the upper "glow" -->
+                                                    <Path x:Name="TopShine" Margin="1" Opacity="0.70" Width="Auto" Height="Auto" Stretch="Uniform" Data="M330.5,165.5 C330.5,171.99974 260.12698,235 169,235 77.873016,235 0.5,189.99972 0.5,165.5 0.5,74.373016 74.373016,0.5 165.5,0.5 256.62698,0.5 330.5,74.373016 330.5,165.5 z" VerticalAlignment="Top" >
+                                                        <Path.Fill>
+                                                            <RadialGradientBrush>
+                                                                <RadialGradientBrush.RelativeTransform>
+                                                                    <TransformGroup>
+                                                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                                                        <SkewTransform AngleX="0" AngleY="0"/>
+                                                                        <RotateTransform Angle="0"/>
+                                                                        <TranslateTransform X="0.003" Y="0.336"/>
+                                                                    </TransformGroup>
+                                                                </RadialGradientBrush.RelativeTransform>
+                                                                <GradientStop Color="#68FCFCFC" Offset="0"/>
+                                                                <GradientStop Color="#FFF8FCF8" Offset="0.986"/>
+                                                                <GradientStop Color="#6FFBFCFB" Offset="0.048"/>
+                                                            </RadialGradientBrush>
+                                                        </Path.Fill>
+                                                    </Path>
+
+                                                    <!-- This path represents the lower "glow" -->
+                                                    <Path x:Name="BottomShine" Margin="1,0,1,1" Opacity=".70" Width="Auto" Height="Auto" Stretch="Uniform" Data="M333.5,167 C333.5,258.95541 258.95541,333.5 167,333.5 75.044589,333.5 0.5,258.95541 0.5,167 0.5,158.99982 20.430005,314.65827 167,317.59538 309.57186,320.45237 333.5,166.99983 333.5,167 z" VerticalAlignment="Bottom">
+                                                        <Path.Fill>
+                                                            <RadialGradientBrush>
+                                                                <RadialGradientBrush.RelativeTransform>
+                                                                    <TransformGroup>
+                                                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                                                        <SkewTransform AngleX="0" AngleY="0"/>
+                                                                        <RotateTransform Angle="0"/>
+                                                                        <TranslateTransform X="0.003" Y="0.336"/>
+                                                                    </TransformGroup>
+                                                                </RadialGradientBrush.RelativeTransform>
+                                                                <GradientStop Color="#68FCFCFC" Offset="0"/>
+                                                                <GradientStop Color="#FFF8FCF8" Offset="1"/>
+                                                                <GradientStop Color="#C1F9FCF9" Offset="0.596"/>
+                                                            </RadialGradientBrush>
+                                                        </Path.Fill>
+                                                    </Path>
+                                                </Grid>
+                                                <ContentPresenter x:Name="header" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4,0,0,0" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                        <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Stroke="#FF448DCA" StrokeThickness="1" Visibility="Collapsed"/>
+                                    </Grid>
+                                </ControlTemplate>
+                                <ControlTemplate x:Key="ExpanderUpHeaderTemplate" TargetType="ToggleButton">
+                                    <Grid Background="Transparent">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CheckStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="00:00:00"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Checked">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Data" Storyboard.TargetName="arrow">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unchecked"/>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="MouseOver"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="Pressed"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#FF3C7FB1" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowHoverFill}"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ColorAnimation BeginTime="0" To="#222" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#FF526C7B" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+                                                        <DoubleAnimation BeginTime="0" To="1.5" Storyboard.TargetProperty="StrokeThickness" Storyboard.TargetName="circle"/>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowPressedFill}"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ColorAnimation BeginTime="0" To="#FF003366" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Focused">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unfocused"/>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border Padding="{TemplateBinding Padding}">
+                                            <Grid Background="Transparent">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="19"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                    <Grid.RenderTransform>
+                                                        <TransformGroup>
+                                                            <TransformGroup.Children>
+                                                                <TransformCollection>
+                                                                    <RotateTransform Angle="180" CenterY="9.5" CenterX="9.5"/>
+                                                                </TransformCollection>
+                                                            </TransformGroup.Children>
+                                                        </TransformGroup>
+                                                    </Grid.RenderTransform>
+                                                    <Ellipse x:Name="circle" Fill="{StaticResource ExpanderArrowFill}" HorizontalAlignment="Center" Height="19" Stroke="DarkGray" VerticalAlignment="Center" Width="19"/>
+                                                    <Path x:Name="arrow" Data="M 1,1.5 L 4.5,5 L 8,1.5" HorizontalAlignment="Center" Stroke="#666" StrokeThickness="2" VerticalAlignment="Center"/>
+                                                </Grid>
+                                                <ContentPresenter x:Name="header" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4,0,0,0" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                        <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Stroke="#FF448DCA" StrokeThickness="1" Visibility="Collapsed"/>
+                                    </Grid>
+                                </ControlTemplate>
+                                <ControlTemplate x:Key="ExpanderLeftHeaderTemplate" TargetType="ToggleButton">
+                                    <Grid Background="Transparent">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CheckStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="00:00:00"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Checked">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Data" Storyboard.TargetName="arrow">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unchecked"/>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="MouseOver"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="Pressed"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#FF3C7FB1" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowHoverFill}"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ColorAnimation BeginTime="0" To="#222" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#FF526C7B" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+                                                        <DoubleAnimation BeginTime="0" To="1.5" Storyboard.TargetProperty="StrokeThickness" Storyboard.TargetName="circle"/>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowPressedFill}"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ColorAnimation BeginTime="0" To="#FF003366" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Focused">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unfocused"/>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border Padding="{TemplateBinding Padding}">
+                                            <Grid Background="Transparent">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="19"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                                                    <Grid.RenderTransform>
+                                                        <TransformGroup>
+                                                            <TransformGroup.Children>
+                                                                <TransformCollection>
+                                                                    <RotateTransform Angle="90" CenterY="9.5" CenterX="9.5"/>
+                                                                </TransformCollection>
+                                                            </TransformGroup.Children>
+                                                        </TransformGroup>
+                                                    </Grid.RenderTransform>
+                                                    <Ellipse x:Name="circle" Fill="{StaticResource ExpanderArrowFill}" HorizontalAlignment="Center" Height="19" Stroke="DarkGray" VerticalAlignment="Center" Width="19"/>
+                                                    <Path x:Name="arrow" Data="M 1,1.5 L 4.5,5 L 8,1.5" HorizontalAlignment="Center" Stroke="#666" StrokeThickness="2" VerticalAlignment="Center"/>
+                                                </Grid>
+                                                <ContentPresenter x:Name="header" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="Center" Margin="0,4,0,0" Grid.Row="1" VerticalAlignment="Stretch"/>
+                                            </Grid>
+                                        </Border>
+                                        <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Stroke="#FF448DCA" StrokeThickness="1" Visibility="Collapsed"/>
+                                    </Grid>
+                                </ControlTemplate>
+                                <ControlTemplate x:Key="ExpanderRightHeaderTemplate" TargetType="ToggleButton">
+                                    <Grid Background="Transparent">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CheckStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="00:00:00"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Checked">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Data" Storyboard.TargetName="arrow">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unchecked"/>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualStateGroup.Transitions>
+                                                    <VisualTransition GeneratedDuration="0"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="MouseOver"/>
+                                                    <VisualTransition GeneratedDuration="00:00:00.1" To="Pressed"/>
+                                                </VisualStateGroup.Transitions>
+                                                <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#FF3C7FB1" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowHoverFill}"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ColorAnimation BeginTime="0" To="#222" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <ColorAnimation BeginTime="0" To="#FF526C7B" Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="circle"/>
+                                                        <DoubleAnimation BeginTime="0" To="1.5" Storyboard.TargetProperty="StrokeThickness" Storyboard.TargetName="circle"/>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill)" Storyboard.TargetName="circle">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderArrowPressedFill}"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ColorAnimation BeginTime="0" To="#FF003366" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="arrow"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Focused">
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unfocused"/>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border Padding="{TemplateBinding Padding}">
+                                            <Grid Background="Transparent">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="19"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                                                    <Grid.RenderTransform>
+                                                        <TransformGroup>
+                                                            <TransformGroup.Children>
+                                                                <TransformCollection>
+                                                                    <RotateTransform Angle="270" CenterY="9.5" CenterX="9.5"/>
+                                                                </TransformCollection>
+                                                            </TransformGroup.Children>
+                                                        </TransformGroup>
+                                                    </Grid.RenderTransform>
+                                                    <Ellipse x:Name="circle" Fill="{StaticResource ExpanderArrowFill}" HorizontalAlignment="Center" Height="19" Stroke="DarkGray" VerticalAlignment="Center" Width="19"/>
+                                                    <Path x:Name="arrow" Data="M 1,1.5 L 4.5,5 L 8,1.5" HorizontalAlignment="Center" Stroke="#666" StrokeThickness="2" VerticalAlignment="Center"/>
+                                                </Grid>
+                                                <ContentPresenter x:Name="header" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="Center" Margin="0,4,0,0" Grid.Row="1" VerticalAlignment="Stretch"/>
+                                            </Grid>
+                                        </Border>
+                                        <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Stroke="#FF448DCA" StrokeThickness="1" Visibility="Collapsed"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DisabledVisualElement"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ExpansionStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Collapsed"/>
+                                    <VisualState x:Name="Expanded">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ExpandSite">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ExpandDirectionStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="ExpandDown">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Height" Storyboard.TargetName="rd1">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Width" Storyboard.TargetName="cd0">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="ExpandUp">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Template" Storyboard.TargetName="ExpanderButton">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderUpHeaderTemplate}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="ExpanderButton">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="ExpandSite">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Height" Storyboard.TargetName="rd0">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Width" Storyboard.TargetName="cd0">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="ExpandLeft">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Template" Storyboard.TargetName="ExpanderButton">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderLeftHeaderTemplate}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="ExpanderButton">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="ExpandSite">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Height" Storyboard.TargetName="rd0">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Width" Storyboard.TargetName="cd0">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="ExpandRight">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Template" Storyboard.TargetName="ExpanderButton">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ExpanderRightHeaderTemplate}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="ExpandSite">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="ExpandSite">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Height" Storyboard.TargetName="rd0">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Width" Storyboard.TargetName="cd1">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="Background" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="3">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition x:Name="cd0" Width="Auto"/>
+                                        <ColumnDefinition x:Name="cd1" Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition x:Name="rd0" Height="Auto"/>
+                                        <RowDefinition x:Name="rd1" Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <ToggleButton x:Name="ExpanderButton" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Grid.Column="0" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}" FontStyle="{TemplateBinding FontStyle}" FontStretch="{TemplateBinding FontStretch}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsChecked="{TemplateBinding IsExpanded}" MinWidth="0" MinHeight="0" Padding="{TemplateBinding Padding}" Grid.Row="0" Template="{StaticResource ExpanderDownHeaderTemplate}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    <ContentControl x:Name="ExpandSite" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}" FontStyle="{TemplateBinding FontStyle}" FontStretch="{TemplateBinding FontStretch}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" Visibility="Collapsed" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Grid>
+                            </Border>
+                            <Border x:Name="DisabledVisualElement" Background="#A5FFFFFF" CornerRadius="3" IsHitTestVisible="false" Opacity="0"/>
+                            <Border x:Name="FocusVisualElement" BorderThickness="1" CornerRadius="3" IsHitTestVisible="false" Visibility="Collapsed">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFA3AEB9"/>
+                                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                                        <GradientStop Color="#FF617584" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="UsabilityStates">
+                <VisualState x:Name="Simple" />
+                <VisualState x:Name="Advanced">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AdvancedHeaderControls">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AdvancedControl">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SimpleControl">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <toolkit:Expander Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Style="{StaticResource ExpanderStyle1}">
+
+            <!-- Attach Triggers -->
+            <i:Interaction.Triggers>
+                <!-- Map the Expanded event to the ExpandedCommand command in the ViewModel -->
+                <i:EventTrigger EventName="Expanded">
+                    <cmd:EventToCommand Command="{Binding ExpandedCommand}" PassEventArgsToCommand="False"/>
+                </i:EventTrigger>
+                <!-- Map the Collapsed event to the CollapsedCommand command in the ViewModel -->
+                <i:EventTrigger EventName="Collapsed">
+                    <cmd:EventToCommand Command="{Binding CollapsedCommand}" PassEventArgsToCommand="False"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <!-- Define the expander's header -->
+            <toolkit:Expander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding AttributeName}" />
+                    <StackPanel x:Name="AdvancedHeaderControls" Visibility="Collapsed" Orientation="Horizontal" Grid.Column="1">
+                        <Button  Content="A" />
+                        <Button  Content="B" />                        
+                    </StackPanel>
+                </Grid>
+            </toolkit:Expander.Header>
+
+            <Grid Grid.Row="1">
+                <!-- Define the structure of the advanced control -->
+                <Border x:Name="AdvancedControl" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" BorderBrush="#FFA5A5A5" BorderThickness="1,0,1,1">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <berico:Slider x:Name="WeightSlider" Margin="10,10,10,10" Grid.Column="1" Minimum="1" Maximum="100" SmallChange="1" LargeChange="10" Value="{Binding Value, Mode=TwoWay}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="ValueChanged">
+                                    <cmd:EventToCommand Command="{Binding WeightChangedCommand}" PassEventArgsToCommand="True"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </berico:Slider>
+                        <TextBlock IsHitTestVisible="False" Grid.Column="1" Text="{Binding Value, ElementName=WeightSlider, StringFormat=\{0:0\}%}" FontSize="36"  FontWeight="Bold" HorizontalAlignment="Center" Opacity=".1" />
+                    </Grid>
+                </Border>
+
+                <!-- Define the structure of the simple control -->
+                <Border x:Name="SimpleControl" Visibility="Visible" Background="White" HorizontalAlignment="Stretch" BorderBrush="#FFA5A5A5" BorderThickness="1,0,1,1">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <!--<RowDefinition />
+                            <RowDefinition />     -->                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".5*" />
+                            <ColumnDefinition Width=".5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Content="Exact  " Margin="5,5,5,0" IsChecked="{Binding UseExactSimilarity, Mode=TwoWay, FallbackValue=true}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Perform clustering based on an exact match algorithm" />
+                            </ToolTipService.ToolTip>
+                        </RadioButton>
+                        <RadioButton x:Name="Fuzzy" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Content="Similar" Margin="5,5,5,0">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="{Binding SimilarityToolTip}" />
+                            </ToolTipService.ToolTip>                            
+                        </RadioButton>
+
+                        <!--<Line Grid.Row="1" Grid.Column="1" Margin="4,-1,0,-3" Stroke="Black" X1="0" X2="0" Y1="0" Y2="1" Stretch="Fill" StrokeThickness="2">
+                            <Line.Effect>
+                                <BlurEffect Radius="3" />
+                            </Line.Effect>
+                        </Line>
+                        <Line Grid.Row="1" Grid.Column="1" Margin="0,-2,0,-3"  Stroke="Red" X1="0" X2="0" Y1="0" Y2="1" Stretch="Fill" StrokeThickness="2" />
+                        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="7,10,3,-13" CornerRadius="5,5,0,0" BorderBrush="Black" BorderThickness="2,2,2,0" Height="10">
+                            <Border.Effect>
+                                <BlurEffect Radius="3" />
+                            </Border.Effect>
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,10,5,-10" CornerRadius="5,5,0,0" BorderBrush="Red" BorderThickness="2,2,2,0" Height="10" />-->
+
+                        <!-- Slider to control 'Fuzzyness' -->
+                        <!--<berico:Slider x:Name="FuzzySlider" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" IsEnabled="{Binding IsSimilaritySliderEnabled}" Margin="10,10,10,10" Minimum="1" Maximum="{Binding NumberOfThresholds, FallbackValue=5}" SmallChange="1" LargeChange="1" IsSnapToTickEnabled="True" TickFrequency="1" TickLocation="Bottom">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="ValueChanged">
+                                    <cmd:EventToCommand Command="{Binding FuzzyChangedCommand}" PassEventArgsToCommand="True"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </berico:Slider>-->
+                    </Grid>
+                </Border>
+            </Grid>
+        </toolkit:Expander>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,516 @@
+﻿@{
+	ViewBag.Title = "Web API Demo";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+	var _host = null;
+	var snagl = null;                           // Represents the scriptable object within Snagl
+	var preload = true;                         // Indicates whether sample data should be preloaded
+	var sampleDataFile = "/Content/GraphML/3wheel_sample.xml";   // Indicates the name of the file containg the sample data to be preloaded
+
+	// This event is fired after the Silverlight plugin (Snagl)
+	// is fully loaded.  The "sender" is a reference to the actual
+	// plugin so we save it into a variable for safe keeping.  All
+	// initiall calls to Snagl should be place within this function.
+	function onSnaglRootLoaded(sender, args) {
+		// Get the instance of the scriptable object
+		// within the SnagL application that is used
+		// to interact with SnagL
+		_host = sender.getHost();
+		snagl = _host.Content.SNAGL;
+
+		// Wire up any events
+		var snaglLoadedToken = snagl.addEventListener("SnaglLoaded", onSnaglLoaded);
+		//snagl.addEventListener("GraphResized", onGraphResized);
+		//var nodeDblClickedToken = snagl.addEventListener("NodeDoubleClicked", onNodeDoubleClicked);
+	}
+
+	//
+	function onSnaglLoaded(sender, args) {
+		// Preload data into SnagL, if configured to do so
+		if (preload)
+			preLoadGraphdata(preLoadCompleteCallback, sampleDataFile);
+
+		snagl.addItemToGraphContextMenu("Test Item 1", "test1Callback");
+		snagl.addItemToGraphContextMenu("Test Item 2", "test2Callback");
+
+		snagl.addItemToNodeContextMenu("Test Item 1", "nodeCallback");
+
+		// Configure the client-side toolbar
+		$(function () {
+			// Assign a click event handler to the layout buttons
+			$("#layoutButtons").find("a").each(function (i) {
+				$(this).click(function () {
+					var layout = $(this).attr("id");
+
+					snagl.layoutGraph(layout, true);
+				});
+			});
+
+			// Set up the zoom slider
+			$("#slider").slider({
+				change: function (event, ui) {
+					snagl.zoom($("#slider").slider("option", "value"));
+				},
+				min: 0.05,
+				max: 4,
+				step: .25,
+				value: snagl.scale
+			});
+		});
+
+		$("#addNodeTestButton").click(function () {
+			$("#addNodeDialog").show("slide", {}, 1000);
+		});
+
+		$("#saveNode").click(function () {
+			var nodeId = $('#nodeId').val();
+			var rowCount = $('#addNodeTable tr').length;
+			var attributeDictionary = {};
+
+			// Get the key value pairs
+			$('#addNodeTable tr').each(function () {
+				var self = $(this);
+				var rowIndex = self.prevAll().length;
+
+				if (rowIndex > 1 && rowIndex < (rowCount - 1)) {
+					var key = self.find('.key').val();
+					var value = self.find('.value').val();
+
+					attributeDictionary[key] = value;
+				}
+			});
+
+			var node = generateIconNode(nodeId, attributeDictionary);
+
+			// Add the node to SnagL
+			snagl.addNode(node);
+
+			// Hide the Add Node div
+			$("#addNodeDialog").hide();
+		});
+
+		$('#addNodeAttribute').click(function () {
+			var button = $('<button>Remove</button>').click(function () {
+				$(this).parent().parent().remove(); // Remove the row the attribute belongs to
+			});
+
+			// Show the row header
+			$('#nodeAttributeHeader').css('display', 'table-row');
+
+			// Add a new row to the table
+			var tr = $('<tr>').insertBefore('#addNodeTable tr:last');
+
+			// Add controls to the row
+			$('<td><input class="key" type="text" />').appendTo(tr);
+			$('<td><input class="value" type="text" />').appendTo(tr);
+			$('<td>').append(button).appendTo(tr);
+		});
+
+		$('#cancelNode').click(function () {
+			$("#addNodeDialog").hide();
+		});
+
+		$('#removeNodeTestButton').click(function () {
+			$('#removeNodeDialog').show('slide', {}, 1000);
+		});
+
+		$('#addEdgeTestButton').click(function () {
+			$('#addEdgeDialog').show('slide', {}, 1000);
+		});
+
+		$('#removeNode').click(function () {
+			var nodeId = $('#removeNodeId').val();
+
+			// Remove the node
+			snagl.removeNode(nodeId);
+
+			// Hide the dialog
+			$('#removeNodeDialog').hide();
+		});
+
+		$('#cancelRemoveNode').click(function () {
+			// Hide the dialog
+			$('#removeNodeDialog').hide();
+		});
+
+		$("#saveEdge").click(function () {
+			var sourceNodeId = $('#sourceNodeId').val();
+			var targetNodeId = $('#targetNodeId').val();
+			var edgeLabel = $('#edgeLabel').val();
+			var rowCount = $('#addEdgeTable tr').length;
+			var attributeDictionary = {};
+
+			// Get the key value pairs
+			$('#addEdgeTable tr').each(function () {
+				var self = $(this);
+				var rowIndex = self.prevAll().length;
+
+				if (rowIndex > 1 && rowIndex < (rowCount - 1)) {
+					var key = self.find('.key').val();
+					var value = self.find('.value').val();
+
+					attributeDictionary[key] = value;
+				}
+			});
+
+			// Generate the scriptable nodes and edges
+			var sourceNode = generateIconNode(sourceNodeId);
+
+			//var targetNode = generateIconNode(targetNodeId);
+			var edge = generateEdge(sourceNodeId, targetNodeId, edgeLabel, attributeDictionary);
+
+			// Add the edge to SnagL
+			snagl.addEdge(edge);
+
+			// Hide the Add Edge div
+			$("#addEdgeDialog").hide();
+		});
+
+		$('#addEdgeAttribute').click(function () {
+			var button = $('<button>Remove</button>').click(function () {
+				$(this).parent().parent().remove(); // Remove the row the attribute belongs to
+			});
+
+			// Show the row header
+			$('#edgeAttributeHeader').css('display', 'table-row');
+
+			// Add a new row to the table
+			var tr = $('<tr>').insertBefore('#addEdgeTable tr:last');
+
+			// Add controls to the row
+			$('<td><input class="key" type="text" />').appendTo(tr);
+			$('<td><input class="value" type="text" />').appendTo(tr);
+			$('<td>').append(button).appendTo(tr);
+		});
+
+		$('#cancelEdge').click(function () {
+			$('#addEdgeDialog').hide();
+		});
+
+		$('#removeEdgeTestButton').click(function () {
+			$('#removeEdgeDialog').show('slide', {}, '1000');
+		});
+
+		$('#removeEdge').click(function () {
+			var sourceNodeId = $('#removeSourceNodeId').val();
+			var targetNodeId = $('#removeTargetNodeId').val();
+
+			// Remove the edge from the graph
+			snagl.removeEdge(sourceNodeId, targetNodeId);
+
+			// Hide the dialog
+			$('#removeEdgeDialog').hide();
+		});
+
+		$('#cancelRemoveEdge').click(function () {
+			$('#removeEdgeDialog').hide();
+		});
+
+		$('#showToolbar').click(function () {
+			snagl.setIsToolbarHidden(false);
+		});
+
+		$('#hideToolbar').click(function () {
+			snagl.setIsToolbarHidden(true);
+		});
+
+		$('#showToolPanel').click(function () {
+			snagl.setIsToolPanelHidden(false);
+		});
+
+		$('#hideToolPanel').click(function () {
+			snagl.setIsToolPanelHidden(true);
+		});
+
+		$('#enablePanMode').click(function () {
+			snagl.setIsPanMode(true);
+		});
+
+		$('#disablePanMode').click(function () {
+			snagl.setIsPanMode(false);
+		});
+
+		$('#performExportButton').click(function () {
+			var exportedData = snagl.performExport();
+			alert(exportedData);
+		});
+
+		$("#performSearchButton").click(function () {
+		    $('#searchDialog').show('slide', {}, 1000);
+		});
+
+		$('#search').click(function () {
+		    var searchTerms = $('#searchTerms').val();
+
+		    // Search the graph for the specified search terms
+		    snagl.performSearch("Filter", searchTerms);
+
+            // Hide the search dialog
+		    $('#searchDialog').hide();
+		});
+
+		$('#searchCancel').click(function () {
+		    $('#searchDialog').hide();
+		});
+	}
+
+	function generateIconNode(id, attributeDictionary) {
+		var iconNode = _host.Content.services.createObject("ScriptableIconNodeMapData");
+		var nodeAttributeDictionary = iconNode.createManagedObject("Dictionary<string, ScriptableAttributeMapData>");
+
+		iconNode.Id = id;
+
+		for (key in attributeDictionary) {
+			var attr = _host.Content.services.createObject("ScriptableAttributeMapData");
+			attr.Name = key;
+			attr.Value = attributeDictionary[key];
+			attr.IsHidden = false;
+
+			nodeAttributeDictionary[key] = attr;
+		}
+
+		iconNode.Attributes = nodeAttributeDictionary;
+
+		return iconNode;
+	}
+
+	function generateEdge(sourceId, targetId, label, attributeDictionary) {
+		var edge = _host.Content.services.createObject("ScriptableEdgeMapData");
+
+		edge.Source = sourceId;
+		edge.Target = targetId;
+		edge.Label = label;
+
+		return edge;
+	}
+
+	function test1Callback() {
+		alert("The 'Test 1 Menu Item' was pressed");
+	}
+
+	function test2Callback() {
+		alert("The 'Test 2 Menu Item' was pressed");
+	}
+
+	function nodeCallback(id) {
+		alert("Node with the ID " + id.Id + " selected");
+	}
+
+	// Handles the GraphResized event
+	function onGraphResized(sender, args) {
+		var scale = snagl.scale;
+
+		$("#slider").slider("option", "value", scale);
+
+		alert(scale);
+	}
+
+	function onNodeDoubleClicked(sender, args) {
+		alert("Node " + args.Id + " was double clicked!");
+	}
+
+	// This function loads the provided text file (as text) from the
+	// server and returns its contents to the method that called 
+	function preLoadGraphdata(callback, dataFile) {
+
+		// This call uses an AJAX call, back to the server, in order
+		// to synchronously get the desired file.  The contents of
+		// the file, once retrieved, is passed to the specified
+		// callback function.
+		$.ajax({
+			type: "GET",
+			url: dataFile,
+			dataType: $.browser.msie ? "text" : "html",
+			async: false,
+			cache: false,
+			success: callback
+		});
+	}
+
+	//
+	function preLoadCompleteCallback(data) {
+
+		// This call loads the provided data into the graph.  The 
+		// 'LoadGraphML' method is capable of parsing
+		// GaphML data.
+		snagl.draw(data, "graphml");
+	}
+
+	function onSilverlightError(sender, args) {
+		var appSource = "";
+		if (sender != null && sender != 0) {
+			appSource = sender.getHost().Source;
+		}
+
+		var errorType = args.ErrorType;
+		var iErrorCode = args.ErrorCode;
+
+		if (errorType == "ImageError" || errorType == "MediaError") {
+			return;
+		}
+
+		var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
+
+		errMsg += "Code: " + iErrorCode + "    \n";
+		errMsg += "Category: " + errorType + "       \n";
+		errMsg += "Message: " + args.ErrorMessage + "     \n";
+
+		if (errorType == "ParserError") {
+			errMsg += "File: " + args.xamlFile + "     \n";
+			errMsg += "Line: " + args.lineNumber + "     \n";
+			errMsg += "Position: " + args.charPosition + "     \n";
+		}
+		else if (errorType == "RuntimeError") {
+			if (args.lineNumber != 0) {
+				errMsg += "Line: " + args.lineNumber + "     \n";
+				errMsg += "Position: " + args.charPosition + "     \n";
+			}
+			errMsg += "MethodName: " + args.methodName + "     \n";
+		}
+
+		throw new Error(errMsg);
+	}
+
+</script>
+<div id="container">
+	<div id="snaglToolbar">
+		<div id="buttons" style="float: left;">
+			<a id="performExportButton" title="Perform Export" href="#"></a>
+			<a id="disablePanMode" title="Enable Selection Mode" href="#"></a>
+			<a id="enablePanMode" title="Enable Pan Mode" href="#"></a>
+            <a id="performSearchButton" title="Perform Search" href="#"></a>
+			<div id="layoutButtons">
+				<a id="CircleLayout" title="Circle Layout" href="#"></a>
+				<a id="OriginalTreeLayout" title="Tree Layout" href="#"></a>
+				<a id="NetworkLayout" title="Network Layout" href="#"></a>
+				<a id="GridLayout" title="Grid Layout" href="#"></a>
+			</div>
+		</div>
+		<div id="slider" style="float: right; width: 150px;">
+		</div>
+		<div style="clear: both;">
+			<table cellspacing="10px" style="border: 0; white-space: nowrap;">
+				<tr>
+					<td>
+						<a id="addNodeTestButton" href="#">Add Node</a><br />
+						<a id="removeNodeTestButton" href="#">Remove Node</a>
+					</td>
+					<td>
+						<a id="addEdgeTestButton" href="#">Add Edge</a><br />
+						<a id="removeEdgeTestButton" href="#">Remove Edge</a>
+					</td>
+					<td>
+						<a id="showToolbar" href="#">Show Toolbar</a><br />
+						<a id="hideToolbar" href="#">Hide Toolbar</a>
+					</td>
+					<td>
+						<a id="showToolPanel" href="#">Show ToolPanel</a><br />
+						<a id="hideToolPanel" href="#">Hide ToolPanel</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="addNodeDialog">
+		<table id="addNodeTable">
+			<tr>
+				<td><label for="nodeId">Node ID:</label></td>
+				<td><input type="text" name="nodeId" id="nodeId" /></td>
+				<td></td>
+			</tr>
+			<tr id="nodeAttributeHeader" style="display: none;">
+				<td>Attribute Key</td>
+				<td>Attribute Value</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><button id="addNodeAttribute">Add Attribute</button></td>
+				<td><button id="saveNode">Save</button> <button id="cancelNode">Cancel</button></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div id="removeNodeDialog">
+		<table>
+			<tr>
+				<td>Node ID:</td>
+				<td><input id="removeNodeId" type="text" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="removeNode">Remove</button> <button id="cancelRemoveNode">Cancel</button></td>
+			</tr>
+		</table>
+	</div>
+	<div id="addEdgeDialog">
+		<table id="addEdgeTable">
+			<tr>
+				<td><label for="sourceNodeId">Source Node ID:</label></td>
+				<td><input type="text" name="sourceNodeId" id="sourceNodeId" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><label for="targetNodeId">Target Node ID:</label></td>
+				<td><input type="text" name="targetNodeId" id="targetNodeId" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><label for="edgeLabel">Edge Label:</label></td>
+				<td><input type="text" name="edgeLabel" id="edgeLabel" /></td>
+				<td></td>
+			</tr>
+			<tr id="edgeAttributeHeader" style="display: none;">
+				<td>Attribute Key</td>
+				<td>Attribute Value</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><button id="addEdgeAttribute">Add Attribute</button></td>
+				<td><button id="saveEdge">Save</button> <button id="cancelEdge">Cancel</button></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div id="removeEdgeDialog">
+		<table>
+			<tr>
+				<td><label for="removeSourceNodeId">Source Node ID:</label></td>
+				<td><input type="text" name="removeSourceNodeId" id="removeSourceNodeId" /></td>
+			</tr>
+			<tr>
+				<td><label for="removeTargetNodeId">Target Node ID:</label></td>
+				<td><input type="text" name="removeTargetNodeId" id="removeTargetNodeId" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="removeEdge">Remove</button> <button id="cancelRemoveEdge">Cancel</button></td>
+			</tr>
+		</table>
+	</div>
+    <div id="searchDialog">
+        <table>
+            <tr>
+                <td>Search Terms:</td>
+                <td><input type="text" name="searchTerms" id="searchTerms" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="search">Search</button> <button id="searchCancel">Cancel</button></td>
+            </tr>
+        </table>
+    </div>
+	<div id="silverlightControlHost">
+		<object id="snagl_silverlight" data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+			width="100%" height="100%">
+			<param name="source" value="/ClientBin/Berico.SnagL.xap" />
+			<param name="onError" value="onSilverlightError" />
+			<param name="background" value="white" />
+			<param name="minRuntimeVersion" value="4.0.50826.0" />
+			<param name="autoUpgrade" value="true" />
+			<param name="onLoad" value="onSnaglRootLoaded" />
+			<a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50401.0" style="text-decoration: none">
+				<img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight"
+					style="border-style: none" />
+			</a>
+		</object>
+		<iframe id="_sl_historyFrame" style="visibility: hidden; height: 0px; width: 0px; border: 0px"></iframe>
+	</div>
+</div>

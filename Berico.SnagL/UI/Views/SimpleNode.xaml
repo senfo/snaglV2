@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="Berico.SnagL.UI.SimpleNode"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.SL4"             
+    xmlns:ui="clr-namespace:Berico.SnagL.UI"
+    xmlns:converters="clr-namespace:Berico.Common.UI.Converters;assembly=Berico.Common"               
+    xmlns:behaviors="clr-namespace:Berico.Common.UI.Behaviors;assembly=Berico.Common"             
+    ui:VisualStates.CurrentState="{Binding CurrentState}"
+    mc:Ignorable="d"
+    d:DesignWidth="100">
+
+    <UserControl.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+    </UserControl.Resources>
+    
+    <!-- Attach behaviors -->
+    <i:Interaction.Behaviors>
+        <!-- Wire the SizeChanged event to the corresponding command in the ViewModel.
+             Problems were encountered attempting to do this using a Trigger and
+             an EventToCommand object-->
+        <behaviors:SizeChangedHandlerBehavior Command="{Binding SizeChangedCommand}" PassEventArgsToCommand="true" />
+        <!-- Wire the LayoutUpdated event to the corresponding command in the ViewModel.
+             Problems were encountered attempting to do this using a Trigger and
+             an EventToCommand object -->
+        <!--<behaviors:LayoutUpdatedHandlerBehavior Command="{Binding LayoutChangedCommand}" PassEventArgsToCommand="false" />-->
+    </i:Interaction.Behaviors>
+
+    <i:Interaction.Triggers>
+        <!-- Wire the MouseLeftButtonDown event to the corresponding command in the ViewModel -->
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <cmd:EventToCommand Command="{Binding MouseLeftButtonDown}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <!-- Wire the MouseLeftButtonUp event to the corresponding command in the ViewModel -->
+        <i:EventTrigger EventName="MouseLeftButtonUp">
+            <cmd:EventToCommand Command="{Binding MouseLeftButtonUp}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <!-- Wire the MouseRightButtonDown event to the corresponding command in the ViewModel -->
+        <i:EventTrigger EventName="MouseRightButtonDown">
+            <cmd:EventToCommand Command="{Binding MouseRightButtonDown}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <!-- Wire the MouseRightButtonUp event to the corresponding command in the ViewModel -->
+        <i:EventTrigger EventName="MouseRightButtonUp">
+            <cmd:EventToCommand Command="{Binding MouseRightButtonUp}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseRightButtonUp">
+            <cmd:EventToCommand Command="{Binding MouseRightButtonUp}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseEnter">
+            <cmd:EventToCommand Command="{Binding MouseEnterCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseLeave">
+            <cmd:EventToCommand Command="{Binding MouseLeaveCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <!-- Wire the MouseWheel event to the corresponding command in the ViewModel -->
+        <!--<i:EventTrigger EventName="MouseWheel">
+            <cmd:EventToCommand Command="{Binding MouseWheel}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>-->
+        <i:EventTrigger EventName="MouseMove">
+            <cmd:EventToCommand Command="{Binding MouseMoveCommand}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <!-- The TextNode view is very simple.  It consits of just a
+         rounded border around a text block that shows the label -->
+    <Grid x:Name="LayoutRoot" Visibility="{Binding IsHidden, Converter={StaticResource VisibilityConverter}, ConverterParameter='true'}" Height="25" Width="25" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="SelectionStates">
+                <VisualState x:Name="Unselected" />
+                <VisualState x:Name="Selected">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SelectionHighlight">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <!-- Selection Indication -->
+        <Border x:Name="SelectionHighlight" Visibility="Collapsed" BorderBrush="#FF4A75A9" BorderThickness="3" CornerRadius="100" Margin="-2" />
+
+        <Ellipse Fill="{Binding Background,FallbackValue=#FF740000}" Margin="2" />
+        <!--<Border Background="{Binding Background,FallbackValue=#FF740000}" BorderBrush="White" BorderThickness="1" CornerRadius="8" />-->
+            <!-- TODO:  Bind the foreground to a Color property in the class -->
+        <!--<TextBlock Text="{Binding DisplayValue,FallbackValue=DisplayValue}" Foreground="White" Margin="6,0" VerticalAlignment="Center" />-->
+    </Grid>
+    
+</UserControl>

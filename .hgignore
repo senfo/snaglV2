@@ -1,0 +1,9 @@
+syntax: glob
+
+*.suo
+*.svn
+*.xap
+Bin\*
+bin\*
+ClientBin\*
+obj\*
