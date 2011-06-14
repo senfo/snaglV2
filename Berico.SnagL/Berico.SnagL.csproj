@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9FD97F93-6F2F-4544-BA97-D10EC642AC0F}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Berico.SnagL.Infrastructure</RootNamespace>
+    <AssemblyName>Berico.SnagL</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Berico.SnagL.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Berico.SnagL.UI.App</SilverlightAppEntry>
+    <TestPageFileName>Berico.SnagLTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.SL4">
+      <HintPath>..\References\GalaSoft.MvvmLight.Extras.SL4.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.SL4">
+      <HintPath>..\References\GalaSoft.MvvmLight.SL4.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphSharp.Silverlight">
+      <HintPath>..\References\GraphSharp.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZLib.Silverlight">
+      <HintPath>..\References\ICSharpCode.SharpZLib.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools">
+      <HintPath>..\References\ImageTools.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.IO.Jpeg">
+      <HintPath>..\References\ImageTools.IO.Jpeg.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.IO.Png">
+      <HintPath>..\References\ImageTools.IO.Png.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.Utils">
+      <HintPath>..\References\ImageTools.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\References\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Controls.WatermarkedTextBox">
+      <HintPath>..\References\Microsoft.Windows.Controls.WatermarkedTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json.Silverlight">
+      <HintPath>..\References\Newtonsoft.Json.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Silverlight">
+      <HintPath>..\References\QuickGraph.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clustering\AttributeSimilarityDescriptor.cs" />
+    <Compile Include="Clustering\AttributeSimilarityManager.cs" />
+    <Compile Include="Clustering\Cluster.cs" />
+    <Compile Include="Clustering\ClusterHighlights.cs" />
+    <Compile Include="Clustering\ClusteringCompletedEventArgs.cs" />
+    <Compile Include="Clustering\ClusteringCompletedEvent.cs" />
+    <Compile Include="Clustering\ClusteringEventArgs.cs" />
+    <Compile Include="Clustering\ConvexHull.cs" />
+    <Compile Include="Clustering\ConvexHullPoint.cs" />
+    <Compile Include="Clustering\SimilarityClustering.cs" />
+    <Compile Include="Configuration\ApplicationMode.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\ConfigurationAdd.cs" />
+    <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Configuration\Extension.cs" />
+    <Compile Include="Configuration\GraphLabel.cs" />
+    <Compile Include="Configuration\Live.cs" />
+    <Compile Include="Configuration\LoggerLevel.cs" />
+    <Compile Include="Configuration\LoggerProvider.cs" />
+    <Compile Include="Configuration\PreferencesProvider.cs" />
+    <Compile Include="Configuration\ExternalResource.cs" />
+    <Compile Include="Configuration\Theme.cs" />
+    <Compile Include="Controls\GraphItemsControl.cs" />
+    <Compile Include="Controls\ViewModels\AdvancedSearchViewModel.cs" />
+    <Compile Include="Controls\ViewModels\AttributePopupViewModel.cs" />
+    <Compile Include="Controls\ViewModels\AttributeSimilarityCriterionViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ClusteringToolMode.cs" />
+    <Compile Include="Controls\ViewModels\CustomMessageDialogViewModel.cs" />
+    <Compile Include="Controls\ViewModels\SimilarityCriterionState.cs" />
+    <Compile Include="Controls\ViewModels\CriterionState.cs" />
+    <Compile Include="Controls\ViewModels\CriterionViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewModels\SearchCriterionState.cs" />
+    <Compile Include="Controls\ViewModels\SearchCriterionViewModel.cs" />
+    <Compile Include="Controls\ViewModels\SearchToolMode.cs" />
+    <Compile Include="Controls\ViewModels\SearchToolViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ToolbarViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ToolPanelViewModel.cs" />
+    <Compile Include="Controls\Views\AdvancedSearch.xaml.cs">
+      <DependentUpon>AdvancedSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\AttributePopup.xaml.cs">
+      <DependentUpon>AttributePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\AttributeSimilarityCriterion.xaml.cs">
+      <DependentUpon>AttributeSimilarityCriterion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\AttributeSimilarityPanel.xaml.cs">
+      <DependentUpon>AttributeSimilarityPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\CustomMessageDialog.xaml.cs">
+      <DependentUpon>CustomMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\SearchCriterion.xaml.cs">
+      <DependentUpon>SearchCriterion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\SearchTool.xaml.cs">
+      <DependentUpon>SearchTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\Toolbar.xaml.cs">
+      <DependentUpon>Toolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ToolbarItemSpacer.xaml.cs">
+      <DependentUpon>ToolbarItemSpacer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ToolPanel.xaml.cs">
+      <DependentUpon>ToolPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attributes\Attribute.cs" />
+    <Compile Include="Data\Attributes\AttributeEventArgs.cs" />
+    <Compile Include="Data\Attributes\GlobalAttributeCollection.cs" />
+    <Compile Include="Data\Attributes\SemanticType.cs" />
+    <Compile Include="Data\EdgeContainer.cs" />
+    <Compile Include="Data\GraphData.cs" />
+    <Compile Include="Data\GraphManager.cs" />
+    <Compile Include="Data\GraphType.cs" />
+    <Compile Include="Data\Mapping\IconNodeMapData.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptableAttributeMapData.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptableEdgeMapData.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptableIconNodeMapData.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptableNodeMapData.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptablePoint.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptableSize.cs" />
+    <Compile Include="Data\Mapping\JS\ScriptableTextNodeMapData.cs" />
+    <Compile Include="Data\Mapping\NodeMapData.cs" />
+    <Compile Include="Data\Mapping\ScriptableMapper.cs" />
+    <Compile Include="Data\Mapping\TextNodeMapData.cs" />
+    <Compile Include="Data\PartitionNode.cs" />
+    <Compile Include="Data\Searching\SearchAction.cs" />
+    <Compile Include="Data\Searching\SearchDescriptor.cs" />
+    <Compile Include="Data\Searching\SearchEventArgs.cs" />
+    <Compile Include="Data\Searching\SearchManager.cs" />
+    <Compile Include="Data\Searching\SearchOperator.cs" />
+    <Compile Include="Data\Searching\SearchOptions.cs" />
+    <Compile Include="Data\EdgePropertyChangedEvent.cs" />
+    <Compile Include="Data\EdgeRemovedEvent.cs" />
+    <Compile Include="Data\EdgeAddedEvent.cs" />
+    <Compile Include="Data\EdgeEventArgs.cs" />
+    <Compile Include="Data\NodePropertyChangedEvent.cs" />
+    <Compile Include="Data\NodeRemovedEvent.cs" />
+    <Compile Include="Data\NodeAddedEvent.cs" />
+    <Compile Include="Data\NodeEventArgs.cs" />
+    <Compile Include="Graph\Events\LiveDataLoadedEvent.cs" />
+    <Compile Include="Graph\Events\ContextMenuEventArgs.cs" />
+    <Compile Include="Graph\ContextMenuManager.cs" />
+    <Compile Include="Graph\Events\GraphMouseRightButtonDownEvent.cs" />
+    <Compile Include="Graph\Events\NodeMouseRightButtonDownEvent.cs" />
+    <Compile Include="Graph\Events\GraphResizedEvent.cs" />
+    <Compile Include="Graph\Events\DataLoadedEvent.cs" />
+    <Compile Include="Graph\Events\DataLoadedEventArgs.cs" />
+    <Compile Include="Graph\Events\EdgeMouseEnterEvent.cs" />
+    <Compile Include="Graph\Events\EdgeMouseLeaveEvent.cs" />
+    <Compile Include="Graph\Events\EdgeViewModelAddedEvent.cs" />
+    <Compile Include="Graph\Events\EdgeViewModelEventArgs.cs" />
+    <Compile Include="Graph\Events\EdgeViewModelMouseEventArgs.cs" />
+    <Compile Include="Graph\Events\EdgeViewModelRemovedEvent.cs" />
+    <Compile Include="Graph\Events\NodeDoubleClickEvent.cs" />
+    <Compile Include="Graph\Events\NodeMouseEnterEvent.cs" />
+    <Compile Include="Graph\Events\NodeMouseLeaveEvent.cs" />
+    <Compile Include="Graph\Events\NodeMouseLeftButtonDownEvent.cs" />
+    <Compile Include="Graph\Events\NodeMouseLeftButtonUpEvent.cs" />
+    <Compile Include="Graph\Events\NodeMouseMoveEvent.cs" />
+    <Compile Include="Graph\Events\NodePositionAnimatedEvent.cs" />
+    <Compile Include="Graph\Events\NodeViewModelEventArgs.cs" />
+    <Compile Include="Graph\Events\NodeViewModelMouseEventArgs.cs" />
+    <Compile Include="Graph\Formats\Anb\Attribute.cs" />
+    <Compile Include="Graph\Formats\Anb\AttributeClass.cs" />
+    <Compile Include="Graph\Formats\Anb\AttributeClassCollection.cs" />
+    <Compile Include="Graph\Formats\Anb\AttributeCollection.cs" />
+    <Compile Include="Graph\Formats\Anb\Card.cs" />
+    <Compile Include="Graph\Formats\Anb\CardCollection.cs" />
+    <Compile Include="Graph\Formats\Anb\Chart.cs" />
+    <Compile Include="Graph\Formats\Anb\ChartItem.cs" />
+    <Compile Include="Graph\Formats\Anb\ChartItemCollection.cs" />
+    <Compile Include="Graph\Formats\Anb\CIStyle.cs" />
+    <Compile Include="Graph\Formats\Anb\ConnectionStyle.cs" />
+    <Compile Include="Graph\Formats\AnbGraphDataFormat.cs" />
+    <Compile Include="Graph\Formats\Anb\CurrentIconStyle.cs" />
+    <Compile Include="Graph\Formats\Anb\CurrentLinkStyle.cs" />
+    <Compile Include="Graph\Formats\Anb\CurrentStyleCollection.cs" />
+    <Compile Include="Graph\Formats\Anb\End.cs" />
+    <Compile Include="Graph\Formats\Anb\Entity.cs" />
+    <Compile Include="Graph\Formats\Anb\Font.cs" />
+    <Compile Include="Graph\Formats\Anb\Icon.cs" />
+    <Compile Include="Graph\Formats\Anb\IconStyle.cs" />
+    <Compile Include="Graph\Formats\Anb\Link.cs" />
+    <Compile Include="Graph\Formats\Anb\LinkStyle.cs" />
+    <Compile Include="Graph\Formats\Anb\LinkTypeCollection.cs" />
+    <Compile Include="Data\Mapping\AttributeMapData.cs" />
+    <Compile Include="Graph\Formats\TracGraphDataFormat.cs" />
+    <Compile Include="Graph\Formats\Trac\Data.cs" />
+    <Compile Include="Graph\Formats\Trac\Result.cs" />
+    <Compile Include="Graph\Formats\Trac\Trac.cs" />
+    <Compile Include="Graph\Formats\Trac\TracWrapper.cs" />
+    <Compile Include="Graph\Formats\MappingExtensions.cs" />
+    <Compile Include="Data\Mapping\EdgeMapData.cs" />
+    <Compile Include="Data\Mapping\GraphMapData.cs" />
+    <Compile Include="Graph\ILiveData.cs" />
+    <Compile Include="Graph\LiveData.cs" />
+    <Compile Include="Graph\Formats\DataExportedEvent.cs" />
+    <Compile Include="Graph\Formats\DataExportingEvent.cs" />
+    <Compile Include="Graph\Formats\DataImportedEvent.cs" />
+    <Compile Include="Graph\Formats\DataImportingEvent.cs" />
+    <Compile Include="Graph\Formats\GraphMLGraphDataFormat.cs" />
+    <Compile Include="Graph\Formats\GraphDataFormatBase.cs" />
+    <Compile Include="Graph\INodeShape.cs" />
+    <Compile Include="Graph\GraphGenerator.cs" />
+    <Compile Include="Events\SnaglEventAggregator.cs" />
+    <Compile Include="Graph\EdgeViewModelBase.cs" />
+    <Compile Include="Graph\GraphComponents.cs" />
+    <Compile Include="Graph\IEdgeViewModel.cs" />
+    <Compile Include="Graph\IScopingContainer.cs" />
+    <Compile Include="Graph\NodeFilter.cs" />
+    <Compile Include="Graph\NodeSelector.cs" />
+    <Compile Include="Graph\NodeViewModelBase.cs" />
+    <Compile Include="Interop\ScriptableEdgeEventArgs.cs" />
+    <Compile Include="Interop\ScriptableGraph.cs" />
+    <Compile Include="Interop\ScriptableNodeEventArgs.cs" />
+    <Compile Include="Layouts\BalloonTreeLayout.cs" />
+    <Compile Include="Layouts\AsynchronousLayoutBase.cs" />
+    <Compile Include="Layouts\CircularLayout.cs" />
+    <Compile Include="Layouts\CompoundFDPLayout.cs" />
+    <Compile Include="Layouts\DoubleTreeLayout.cs" />
+    <Compile Include="Layouts\EfficientSugiyamaLayout.cs" />
+    <Compile Include="Layouts\ForceDirected.cs" />
+    <Compile Include="Layouts\FRLayout.cs" />
+    <Compile Include="Layouts\GraphComponentsUtility.cs" />
+    <Compile Include="Layouts\GridLayout.cs" />
+    <Compile Include="Layouts\GridLayoutOrig.cs" />
+    <Compile Include="Layouts\InternalLayouts.cs" />
+    <Compile Include="Layouts\ISOMLayout.cs" />
+    <Compile Include="Layouts\KKLayout.cs" />
+    <Compile Include="Layouts\LayoutExecutingEvent.cs" />
+    <Compile Include="Layouts\LayoutBase.cs" />
+    <Compile Include="Layouts\LayoutManager.cs" />
+    <Compile Include="Layouts\LayoutTypes.cs" />
+    <Compile Include="Layouts\GraphSharpUtility.cs" />
+    <Compile Include="Layouts\LinLogLayout.cs" />
+    <Compile Include="Layouts\NetworkLayout.cs" />
+    <Compile Include="Layouts\RadialLayout.cs" />
+    <Compile Include="Layouts\SimpleTreeLayout.cs" />
+    <Compile Include="Layouts\SugiyamaLayout.cs" />
+    <Compile Include="Layouts\TreeLayout.cs" />
+    <Compile Include="Logging\ClientData.cs" />
+    <Compile Include="Logging\ExceptionData.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LoggerManager.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Logging\Providers\BrowserConsoleLoggerProvider.cs" />
+    <Compile Include="Logging\Providers\IsolatedStorageLoggerProvider.cs" />
+    <Compile Include="Media\Animation\AnimatorBase.cs" />
+    <Compile Include="Media\Animation\NodePositionAnimator.cs" />
+    <Compile Include="Modularity\Actions\Node\CollapseExpandNodeAction.cs" />
+    <Compile Include="Modularity\Contracts\IAction.cs" />
+    <Compile Include="Modularity\Contracts\IGraphDataFormat.cs" />
+    <Compile Include="Modularity\Contracts\ILoggerProvider.cs" />
+    <Compile Include="Modularity\Contracts\IPreferencesProvider.cs" />
+    <Compile Include="Modularity\Contracts\IRanker.cs" />
+    <Compile Include="Modularity\Contracts\ISimilarityMeasure.cs" />
+    <Compile Include="Modularity\Contracts\IToolbarItemViewExtension.cs" />
+    <Compile Include="Modularity\Contracts\IToolbarItemViewModelExtension.cs" />
+    <Compile Include="Modularity\Contracts\IToolPanelItemViewExtension.cs" />
+    <Compile Include="Modularity\Contracts\IToolPanelItemViewModelExtension.cs" />
+    <Compile Include="Modularity\Contracts\SimilarityMeasureBase.cs" />
+    <Compile Include="Modularity\ExtensionManager.cs" />
+    <Compile Include="Modularity\ToolPanel\RankingToolPanelItemExtensionView.xaml.cs">
+      <DependentUpon>RankingToolPanelItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\ToolPanel\RankingToolPanelItemExtensionViewModel.cs" />
+    <Compile Include="Ranking\DegreeCentralityRanker.cs" />
+    <Compile Include="Ranking\RankerBase.cs" />
+    <Compile Include="Ranking\RankingData.cs" />
+    <Compile Include="Ranking\RankingManager.cs" />
+    <Compile Include="Modularity\ToolBarItemClickedEvent.cs" />
+    <Compile Include="Modularity\ToolBarItemEventArgs.cs" />
+    <Compile Include="Modularity\Toolbar\CircleToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>CircleToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\CircleToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\FullScreenToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>FullScreenToolbarItemExtensionView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\FullScreenToolbarItemExtensionViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\GridToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>GridToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\GridToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\GraphToImageToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>GraphToImageToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\GraphToImageToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\PrintToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>PrintToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\PrintToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\ResizeToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>ResizeToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\ResizeToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\ExportToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>ExportToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\ExportToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\GraphGeneratorToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>GraphGeneratorToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\GraphGeneratorToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\ImportToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>ImportToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\ImportToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\NetworkToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>NetworkToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\NetworkToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\PanToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>PanToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\PanToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\SearchToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>SearchToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\SearchToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\SelectToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>SelectToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\SelectToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\ToolbarExtensionManager.cs" />
+    <Compile Include="Modularity\Toolbar\TreeToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>TreeToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\Toolbar\TreeToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\SimpleTreeToolbarItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\Toolbar\SimpleTreeToolbarItemExtensionView.xaml.cs">
+      <DependentUpon>SimpleTreeToolbarItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\ToolPanel\ClusteringToolPanelItemExtensionView.xaml.cs">
+      <DependentUpon>ClusteringToolPanelItemExtensionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\ToolPanel\ClusteringToolPanelItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\ToolPanel\LiveDataToolPanelItemExtension.xaml.cs">
+      <DependentUpon>LiveDataToolPanelItemExtension.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\ToolPanel\LiveDataToolPanelItemExtensionViewModel.cs" />
+    <Compile Include="Modularity\ToolPanel\ToolPanelExtensionManager.cs" />
+    <Compile Include="Preferences\PreferencesManager.cs" />
+    <Compile Include="Preferences\Providers\IsolatedStoragePreferencesProvider.cs" />
+    <Compile Include="Layouts\LayoutExecutedEvent.cs" />
+    <Compile Include="Similarity\DoubleMetaphoneSimilarityMeasure.cs" />
+    <Compile Include="UI\EdgeLine.cs" />
+    <Compile Include="UI\IEdgeLine.cs" />
+    <Compile Include="UI\LiveDataEndedEvent.cs" />
+    <Compile Include="UI\LiveDataDequeued.cs" />
+    <Compile Include="UI\LiveDataEnqueuedEvent.cs" />
+    <Compile Include="UI\LiveDataEventArgs.cs" />
+    <Compile Include="UI\LiveDataStartedEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\TimeConsumingTaskCompletedEvent.cs" />
+    <Compile Include="UI\TimeConsumingTaskExecutingEvent.cs" />
+    <Compile Include="UI\TimeConsumingTaskEventArgs.cs" />
+    <Compile Include="UI\SnaglLoadedEvent.cs" />
+    <Compile Include="UI\SnaglLoadedEventArgs.cs" />
+    <Compile Include="UI\NodeStates.cs" />
+    <Compile Include="UI\NodeTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Similarity\AlphabeticalSimilarityMeasure.cs" />
+    <Compile Include="Similarity\DateTimeSimilarityMeasure.cs" />
+    <Compile Include="Similarity\EmailDomainSimilarityMeasure.cs" />
+    <Compile Include="Similarity\EmailUserSimilarityMeasure.cs" />
+    <Compile Include="Similarity\ExactMatchSimilarityMeasure.cs" />
+    <Compile Include="Similarity\GeospatialSimilarityMeasure.cs" />
+    <Compile Include="Similarity\LevenshteinDistanceStringSimilarityMeasure.cs" />
+    <Compile Include="Similarity\NumericSimilarityMeasure.cs" />
+    <Compile Include="Similarity\RegexStringSimilarityMeasure.cs" />
+    <Compile Include="Layouts\LayoutEventArgs.cs" />
+    <Compile Include="UI\ViewModelLocator.cs" />
+    <Compile Include="UI\ViewModels\DuplexEdgeViewModel.cs" />
+    <Compile Include="UI\ViewModels\GraphViewModel.cs" />
+    <Compile Include="UI\ViewModels\IconNodeViewModel.cs" />
+    <Compile Include="UI\ViewModels\MainViewModel.cs" />
+    <Compile Include="UI\ViewModels\SimilarityEdgeViewModel.cs" />
+    <Compile Include="UI\ViewModels\StandardEdgeViewModel.cs" />
+    <Compile Include="UI\ViewModels\TextNodeViewModel.cs" />
+    <Compile Include="UI\Views\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\SimpleNode.xaml.cs">
+      <DependentUpon>SimpleNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Edge.xaml.cs">
+      <DependentUpon>Edge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Graph.xaml.cs">
+      <DependentUpon>Graph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\IconNode.xaml.cs">
+      <DependentUpon>IconNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\TextNode.xaml.cs">
+      <DependentUpon>TextNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VisualStates.cs" />
+    <Compile Include="UI\XapLoadedEventArgs.cs" />
+    <Compile Include="UI\XapLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Configuration\SnaglConfiguration.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Resource Include="Resources\Icons\SnagL\Print.png" />
+    <Resource Include="Resources\Icons\SnagL\Print_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\FullScreen.png" />
+    <Resource Include="Resources\Icons\SnagL\FullScreen_Hover.png" />
+    <Resource Include="Resources\Icons\AcademicOrganization.png" />
+    <Resource Include="Resources\Icons\agent.png" />
+    <Resource Include="Resources\Icons\airVehicle.png" />
+    <Resource Include="Resources\Icons\article.png" />
+    <Resource Include="Resources\Icons\asset.png" />
+    <Resource Include="Resources\Icons\bankaccount.png" />
+    <Resource Include="Resources\Icons\book.png" />
+    <Resource Include="Resources\Icons\business.png" />
+    <Resource Include="Resources\Icons\charity.png" />
+    <Resource Include="Resources\Icons\ChemBio_node.png" />
+    <Resource Include="Resources\Icons\Classification.png" />
+    <Resource Include="Resources\Icons\Computer.png" />
+    <Resource Include="Resources\Icons\criminalorg.png" />
+    <Resource Include="Resources\Icons\DNS.png" />
+    <Resource Include="Resources\Icons\Drug1.png" />
+    <Resource Include="Resources\Icons\entity.png" />
+    <Resource Include="Resources\Icons\Filter.png" />
+    <Resource Include="Resources\Icons\FTP.png" />
+    <Resource Include="Resources\Icons\governmentOrg.png" />
+    <Resource Include="Resources\Icons\High Value Item-node.png" />
+    <Resource Include="Resources\Icons\HTTP.png" />
+    <Resource Include="Resources\Icons\icon_addressbook.png" />
+    <Resource Include="Resources\Icons\icon_clipboard.png" />
+    <Resource Include="Resources\Icons\icon_document.png" />
+    <Resource Include="Resources\Icons\icon_fingerprint.png" />
+    <Resource Include="Resources\Icons\icon_home.png" />
+    <Resource Include="Resources\Icons\icon_largeicons.png" />
+    <Resource Include="Resources\Icons\icon_mail.png" />
+    <Resource Include="Resources\Icons\icon_network.png" />
+    <Resource Include="Resources\Icons\icon_person.png" />
+    <Resource Include="Resources\Icons\icon_phone.png" />
+    <Resource Include="Resources\Icons\landVehicle.png" />
+    <Resource Include="Resources\Icons\lawEnforcementOfficer.png" />
+    <Resource Include="Resources\Icons\LawEnforcementOrganization.png" />
+    <Resource Include="Resources\Icons\LegalOfficial.png" />
+    <Resource Include="Resources\Icons\LegalOfficial2.png" />
+    <Resource Include="Resources\Icons\location.png" />
+    <Resource Include="Resources\Icons\Materiel-node.png" />
+    <Resource Include="Resources\Icons\MilitaryOrganization.png" />
+    <Resource Include="Resources\Icons\mosque.png" />
+    <Resource Include="Resources\Icons\nodeIDPersonBlue.png" />
+    <Resource Include="Resources\Icons\organization.png" />
+    <Resource Include="Resources\Icons\paper.png" />
+    <Resource Include="Resources\Icons\payment.png" />
+    <Resource Include="Resources\Icons\phone.png" />
+    <Resource Include="Resources\Icons\phoneDoc.png" />
+    <Resource Include="Resources\Icons\polticalOrg.png" />
+    <Resource Include="Resources\Icons\professor.png" />
+    <Resource Include="Resources\Icons\publication.png" />
+    <Resource Include="Resources\Icons\schedule.png" />
+    <Resource Include="Resources\Icons\Sea Vehicle-node.png" />
+    <Resource Include="Resources\Icons\Search.png" />
+    <Resource Include="Resources\Icons\SMTP.png" />
+    <Resource Include="Resources\Icons\software.png" />
+    <Resource Include="Resources\Icons\SSH.png" />
+    <Resource Include="Resources\Icons\SSL.png" />
+    <Resource Include="Resources\Icons\suicidebomber.png" />
+    <Resource Include="Resources\Icons\suicidebombEvent.png" />
+    <Resource Include="Resources\Icons\synagogue.png" />
+    <Resource Include="Resources\Icons\teacher.png" />
+    <Resource Include="Resources\Icons\terroristOrg.png" />
+    <Resource Include="Resources\Icons\transaction.png" />
+    <Resource Include="Resources\Icons\vehicle.png" />
+    <Resource Include="Resources\Icons\Weapon-node.png" />
+    <Resource Include="Resources\Icons\work.png" />
+    <Resource Include="Resources\Icons\SnagL\Pan.png" />
+    <Resource Include="Resources\Icons\SnagL\Pan_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Grid.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Grid_Hover.png" />
+    <None Include="Properties\AppManifest.xml" />
+    <Resource Include="Resources\FakeData.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SnagL\Snapshot.png" />
+    <Resource Include="Resources\Icons\SnagL\Snapshot_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Pause.png" />
+    <Resource Include="Resources\Icons\SnagL\Pause_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Play.png" />
+    <Resource Include="Resources\Icons\SnagL\Play_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Resize.png" />
+    <Resource Include="Resources\Icons\SnagL\Resize_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Execute.png" />
+    <Resource Include="Resources\Icons\SnagL\Execute_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Select_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Select.png" />
+    <Resource Include="Resources\Icons\SnagL\Search.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Tree_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Tree.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Network_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Network.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Circle_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Layout_Circle.png" />
+    <Resource Include="Resources\Icons\SnagL\Import_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Import.png" />
+    <Resource Include="Resources\Icons\SnagL\Filter.png" />
+    <Resource Include="Resources\Icons\SnagL\Export_Hover.png" />
+    <Resource Include="Resources\Icons\SnagL\Export.png" />
+    <Resource Include="Resources\Icons\person.png" />
+    <Resource Include="Resources\Icons\genericNode.png" />
+    <Page Include="Controls\Views\AdvancedSearch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\AttributePopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\AttributeSimilarityCriterion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\AttributeSimilarityPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\CustomMessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\SearchCriterion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\SearchTool.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\Toolbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\ToolbarItemSpacer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\ToolPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\CircleToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\FullScreenToolbarItemExtensionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modularity\Toolbar\GridToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\GraphToImageToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\PrintToolbarItemExtensionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modularity\Toolbar\ResizeToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\ExportToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\GraphGeneratorToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\ImportToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\NetworkToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\PanToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\SearchToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\SelectToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\TreeToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\Toolbar\SimpleTreeToolbarItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\ToolPanel\ClusteringToolPanelItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Content Include="Resources\Configuration\DefaultConfiguration.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Cosmopolitan\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Cosmopolitan\CoreStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Cosmopolitan\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Cosmopolitan\SDKStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Cosmopolitan\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Cosmopolitan\ToolkitStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Page Include="Modularity\ToolPanel\RankingToolPanelItemExtensionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modularity\ToolPanel\LiveDataToolPanelItemExtension.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\SimpleNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Edge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Graph.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\IconNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\TextNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Berico.Common\Berico.Common.csproj">
+      <Project>{EBCFC95A-BE3B-4A1F-AB1E-F0C61D014E46}</Project>
+      <Name>Berico.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Berico.SnagL.Model\Berico.SnagL.Model.csproj">
+      <Project>{C5340D7C-A99D-4F16-8A46-8BBC6369732A}</Project>
+      <Name>Berico.SnagL.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Berico.Windows.Controls\Berico.Windows.Controls.csproj">
+      <Project>{A4EFEB1D-2952-4CA7-9AA3-659FEE7C1175}</Project>
+      <Name>Berico.Windows.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
