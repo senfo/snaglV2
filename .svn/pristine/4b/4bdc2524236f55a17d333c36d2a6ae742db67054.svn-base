@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<repositories>
-  <repository path="..\SnagLFacebookHostDemo\packages.config" />
-  <repository path="..\Berico.SnagL.Host.Facebook\packages.config" />
-</repositories>

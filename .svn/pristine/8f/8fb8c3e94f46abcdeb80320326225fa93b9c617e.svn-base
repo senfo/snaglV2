@@ -1,4 +1,0 @@
-﻿#circleLayout a img:hover
-{
-    background-image: url('/Content/Image/Layout_Circle_Hover.png');
-}
