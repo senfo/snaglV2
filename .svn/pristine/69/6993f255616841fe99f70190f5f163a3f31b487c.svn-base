@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Berico.SnagL.Infrastructure.Controls.AdvancedSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
+    xmlns:local="clr-namespace:Berico.SnagL.Infrastructure.Controls"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    mc:Ignorable="d"
+    DataContext="{Binding AdvancedSearchVM, Source={StaticResource Locator}}"
+    MaxHeight="350">
+
+    <UserControl.Resources>
+        <Style x:Key="CriterionListBoxStyle" TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To=".35" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="fillColor"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To=".55" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="contentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected"/>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To=".75" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="fillColor2"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle x:Name="fillColor" Fill="#B24A75A9" IsHitTestVisible="False" Opacity="0" RadiusY="1" RadiusX="1"/>
+                            <Rectangle x:Name="fillColor2" Fill="#B24A75A9" IsHitTestVisible="False" Opacity="0" RadiusY="1" RadiusX="1"/>
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}"/>
+                            <Rectangle x:Name="FocusVisualElement" RadiusY="1" RadiusX="1" Stroke="#B24A75A9" StrokeThickness="2" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Search Options Section -->
+        <Border Grid.Row="0" Height="Auto" Width="Auto" BorderBrush="#FFA5A5A5" BorderThickness="0,0,0,2">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFFFF"/>
+                    <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                    <GradientStop Color="#FFE0E0E0" Offset="0.49"/>
+                    <GradientStop Color="#FFE0E0E1" Offset="0.50"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid Margin="5" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontWeight="Bold"  FontSize="12" VerticalAlignment="Bottom" Text="Maximum Nodes:" />
+                    <TextBox x:Name="MaxNodesTextBox" Height="20" Margin="5,0,0,0"  />
+                </StackPanel>
+                <CheckBox x:Name="ShowNeighborsCheckBox" Grid.Column="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Content="Show Neighbors" />
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
+            <ListBox Grid.Row="1" ItemsSource="{Binding SearchCriteria}" BorderBrush="Black" SelectionMode="Single" SelectedItem="{Binding SelectedCriterion, Mode=TwoWay}" BorderThickness="1" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource CriterionListBoxStyle}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <local:SearchCriterion HorizontalContentAlignment="Stretch" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</UserControl>

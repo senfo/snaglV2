@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graphml xmlns:berico="http://graph.bericotechnologies.com/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://graphml.graphdrawing.org/xmlns" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="node-attr-ID-desc" for="node" attr.name="node-attr-ID-desc" attr.type="string" />
+  <key id="node-attr-ID-val" for="node" attr.name="node-attr-ID-val" attr.type="string" />
+  <key id="node-attr-Number-desc" for="node" attr.name="node-attr-Number-desc" attr.type="string" />
+  <key id="node-attr-Number-val" for="node" attr.name="node-attr-Number-val" attr.type="string" />
+  <key id="node-attr-Name-desc" for="node" attr.name="node-attr-Name-desc" attr.type="string" />
+  <key id="node-attr-Name-val" for="node" attr.name="node-attr-Name-val" attr.type="string" />
+  <key id="node-attr-CaseType-desc" for="node" attr.name="node-attr-CaseType-desc" attr.type="string" />
+  <key id="node-attr-CaseType-val" for="node" attr.name="node-attr-CaseType-val" attr.type="string" />
+  <key id="node-attr-Agency-desc" for="node" attr.name="node-attr-Agency-desc" attr.type="string" />
+  <key id="node-attr-Agency-val" for="node" attr.name="node-attr-Agency-val" attr.type="string" />
+  <key id="node-attr-Cases.Status-desc" for="node" attr.name="node-attr-Cases.Status-desc" attr.type="string" />
+  <key id="node-attr-Cases.Status-val" for="node" attr.name="node-attr-Cases.Status-val" attr.type="string" />
+  <key id="node-attr-OwnerID-desc" for="node" attr.name="node-attr-OwnerID-desc" attr.type="string" />
+  <key id="node-attr-OwnerID-val" for="node" attr.name="node-attr-OwnerID-val" attr.type="string" />
+  <key id="node-attr-DeviceType-desc" for="node" attr.name="node-attr-DeviceType-desc" attr.type="string" />
+  <key id="node-attr-DeviceType-val" for="node" attr.name="node-attr-DeviceType-val" attr.type="string" />
+  <key id="node-attr-Manufacturer-desc" for="node" attr.name="node-attr-Manufacturer-desc" attr.type="string" />
+  <key id="node-attr-Manufacturer-val" for="node" attr.name="node-attr-Manufacturer-val" attr.type="string" />
+  <key id="node-attr-Model-desc" for="node" attr.name="node-attr-Model-desc" attr.type="string" />
+  <key id="node-attr-Model-val" for="node" attr.name="node-attr-Model-val" attr.type="string" />
+  <key id="node-attr-InterfaceType-desc" for="node" attr.name="node-attr-InterfaceType-desc" attr.type="string" />
+  <key id="node-attr-InterfaceType-val" for="node" attr.name="node-attr-InterfaceType-val" attr.type="string" />
+  <key id="node-attr-UniqueNumber-desc" for="node" attr.name="node-attr-UniqueNumber-desc" attr.type="string" />
+  <key id="node-attr-UniqueNumber-val" for="node" attr.name="node-attr-UniqueNumber-val" attr.type="string" />
+  <key id="node-attr-UniqueNumberType-desc" for="node" attr.name="node-attr-UniqueNumberType-desc" attr.type="string" />
+  <key id="node-attr-UniqueNumberType-val" for="node" attr.name="node-attr-UniqueNumberType-val" attr.type="string" />
+  <key id="node-attr-Devices.Status-desc" for="node" attr.name="node-attr-Devices.Status-desc" attr.type="string" />
+  <key id="node-attr-Devices.Status-val" for="node" attr.name="node-attr-Devices.Status-val" attr.type="string" />
+  <key id="node-attr-CaseID-desc" for="node" attr.name="node-attr-CaseID-desc" attr.type="string" />
+  <key id="node-attr-CaseID-val" for="node" attr.name="node-attr-CaseID-val" attr.type="string" />
+  <key id="node-attr-CaptureID-desc" for="node" attr.name="node-attr-CaptureID-desc" attr.type="string" />
+  <key id="node-attr-CaptureID-val" for="node" attr.name="node-attr-CaptureID-val" attr.type="string" />
+  <key id="node-attr-DeviceID-desc" for="node" attr.name="node-attr-DeviceID-desc" attr.type="string" />
+  <key id="node-attr-DeviceID-val" for="node" attr.name="node-attr-DeviceID-val" attr.type="string" />
+  <key id="node-attr-CaptureTime-desc" for="node" attr.name="node-attr-CaptureTime-desc" attr.type="string" />
+  <key id="node-attr-CaptureTime-val" for="node" attr.name="node-attr-CaptureTime-val" attr.type="string" />
+  <key id="node-attr-FileID-desc" for="node" attr.name="node-attr-FileID-desc" attr.type="string" />
+  <key id="node-attr-FileID-val" for="node" attr.name="node-attr-FileID-val" attr.type="string" />
+  <key id="node-attr-StartLocationID-desc" for="node" attr.name="node-attr-StartLocationID-desc" attr.type="string" />
+  <key id="node-attr-StartLocationID-val" for="node" attr.name="node-attr-StartLocationID-val" attr.type="string" />
+  <key id="node-attr-EndLocationID-desc" for="node" attr.name="node-attr-EndLocationID-desc" attr.type="string" />
+  <key id="node-attr-EndLocationID-val" for="node" attr.name="node-attr-EndLocationID-val" attr.type="string" />
+  <key id="node-attr-StartTime-desc" for="node" attr.name="node-attr-StartTime-desc" attr.type="string" />
+  <key id="node-attr-StartTime-val" for="node" attr.name="node-attr-StartTime-val" attr.type="string" />
+  <key id="node-attr-EndTime-desc" for="node" attr.name="node-attr-EndTime-desc" attr.type="string" />
+  <key id="node-attr-EndTime-val" for="node" attr.name="node-attr-EndTime-val" attr.type="string" />
+  <key id="node-attr-LocationName-desc" for="node" attr.name="node-attr-LocationName-desc" attr.type="string" />
+  <key id="node-attr-LocationName-val" for="node" attr.name="node-attr-LocationName-val" attr.type="string" />
+  <key id="node-attr-StreetName-desc" for="node" attr.name="node-attr-StreetName-desc" attr.type="string" />
+  <key id="node-attr-StreetName-val" for="node" attr.name="node-attr-StreetName-val" attr.type="string" />
+  <key id="node-attr-OtherAddressInfo-desc" for="node" attr.name="node-attr-OtherAddressInfo-desc" attr.type="string" />
+  <key id="node-attr-OtherAddressInfo-val" for="node" attr.name="node-attr-OtherAddressInfo-val" attr.type="string" />
+  <key id="node-attr-Zipcode-desc" for="node" attr.name="node-attr-Zipcode-desc" attr.type="string" />
+  <key id="node-attr-Zipcode-val" for="node" attr.name="node-attr-Zipcode-val" attr.type="string" />
+  <key id="node-attr-City-desc" for="node" attr.name="node-attr-City-desc" attr.type="string" />
+  <key id="node-attr-City-val" for="node" attr.name="node-attr-City-val" attr.type="string" />
+  <key id="node-attr-State-desc" for="node" attr.name="node-attr-State-desc" attr.type="string" />
+  <key id="node-attr-State-val" for="node" attr.name="node-attr-State-val" attr.type="string" />
+  <key id="node-attr-Country-desc" for="node" attr.name="node-attr-Country-desc" attr.type="string" />
+  <key id="node-attr-Country-val" for="node" attr.name="node-attr-Country-val" attr.type="string" />
+  <key id="node-attr-Latitude-desc" for="node" attr.name="node-attr-Latitude-desc" attr.type="string" />
+  <key id="node-attr-Latitude-val" for="node" attr.name="node-attr-Latitude-val" attr.type="string" />
+  <key id="node-attr-Longitude-desc" for="node" attr.name="node-attr-Longitude-desc" attr.type="string" />
+  <key id="node-attr-Longitude-val" for="node" attr.name="node-attr-Longitude-val" attr.type="string" />
+  <key id="node-attr-Elevation-desc" for="node" attr.name="node-attr-Elevation-desc" attr.type="string" />
+  <key id="node-attr-Elevation-val" for="node" attr.name="node-attr-Elevation-val" attr.type="string" />
+  <graph id="LinkAnalysisInheritedAnalytics" edgedefault="directed" berico:nodeType="Icon">
+    <node id="Devices-1">
+      <data key="id">1</data>
+      <data key="number">FIL-0001</data>
+      <data key="name"> - </data>
+      <data key="devicetype">21</data>
+      <data key="interfacetype">24</data>
+      <data key="uniquenumbertype">41</data>
+      <data key="caseid">0</data>
+      <data key="node-prop-BackgroundColor">#88444444</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/Snagl/FullScreen_Hover.png</data>
+    </node>
+    <node id="Devices-15">
+      <data key="id">15</data>
+      <data key="number">FIL-0015</data>
+      <data key="name"> - </data>
+      <data key="devicetype">21</data>
+      <data key="interfacetype">24</data>
+      <data key="uniquenumbertype">41</data>
+      <data key="caseid">0</data>
+      <data key="node-prop-BackgroundColor">#88444444</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/Snagl/FullScreen_Hover.png</data>
+    </node>
+    <node id="TrackLogs-9">
+      <data key="id">9</data>
+      <data key="number">TRK-0009</data>
+      <data key="name">BETHET1</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88440000</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/search.png</data>
+    </node>
+    <edge source="TrackLogs-9" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF880000</data>
+      <data key="edge-attr-Link-val">TrackLogs-9:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="TrackLogs-10">
+      <data key="id">10</data>
+      <data key="number">TRK-0010</data>
+      <data key="name">BETHET1_2</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88440000</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/search.png</data>
+    </node>
+    <edge source="TrackLogs-10" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF880000</data>
+      <data key="edge-attr-Link-val">TrackLogs-10:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Routes-4">
+      <data key="id">4</data>
+      <data key="number">ROU-0004</data>
+      <data key="name">Route001</data>
+      <data key="startlocationid">2170</data>
+      <data key="endlocationid">2173</data>
+      <data key="starttime">02/11/2000 7:09:00 PM</data>
+      <data key="endtime">02/11/1990 7:03:00 PM</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88004400</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/schedule.png</data>
+    </node>
+    <edge source="Routes-4" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF008800</data>
+      <data key="edge-attr-Link-val">Routes-4:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Routes-5">
+      <data key="id">5</data>
+      <data key="number">ROU-0005</data>
+      <data key="name">Route002</data>
+      <data key="startlocationid">2174</data>
+      <data key="endlocationid">2182</data>
+      <data key="starttime">04/01/1996 1:00:00 AM</data>
+      <data key="endtime">03/12/2011 3:05:00 AM</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88004400</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/schedule.png</data>
+    </node>
+    <edge source="Routes-5" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF008800</data>
+      <data key="edge-attr-Link-val">Routes-5:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Routes-6">
+      <data key="id">6</data>
+      <data key="number">ROU-0006</data>
+      <data key="name">Route003</data>
+      <data key="startlocationid">2183</data>
+      <data key="endlocationid">2191</data>
+      <data key="starttime">03/12/2011 3:06:00 AM</data>
+      <data key="endtime">03/12/2011 3:06:00 AM</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88004400</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/schedule.png</data>
+    </node>
+    <edge source="Routes-6" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF008800</data>
+      <data key="edge-attr-Link-val">Routes-6:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-1">
+      <data key="id">1</data>
+      <data key="number">LOC-0001</data>
+      <data key="locationname">WPT004.Multi UP.</data>
+      <data key="GeoLocation">81° 22' 37", 30° 23' 54"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-1" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-1:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2">
+      <data key="id">2</data>
+      <data key="number">LOC-0002</data>
+      <data key="locationname">WPT005.Multi UP.</data>
+      <data key="GeoLocation">81° 21' 40", 30° 23' 49"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-3">
+      <data key="id">3</data>
+      <data key="number">LOC-0003</data>
+      <data key="locationname">WPT001.Multi UP.</data>
+      <data key="GeoLocation">80° 22' 2", 27° 38' 52"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-3" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-3:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-4">
+      <data key="id">4</data>
+      <data key="number">LOC-0004</data>
+      <data key="locationname">WPT002.Multi UP.</data>
+      <data key="GeoLocation">80° 15' 5", 27° 28' 44"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-4" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-4:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-5">
+      <data key="id">5</data>
+      <data key="number">LOC-0005</data>
+      <data key="locationname">WPT003.Multi UP.</data>
+      <data key="GeoLocation">80° 22' 35", 27° 38' 37"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-5" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-5:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-6">
+      <data key="id">6</data>
+      <data key="number">LOC-0006</data>
+      <data key="locationname">WPT006.Multi UP.</data>
+      <data key="GeoLocation">81° 21' 21", 30° 24' 7"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-6" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-6:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-7">
+      <data key="id">7</data>
+      <data key="number">LOC-0007</data>
+      <data key="locationname">WPT007.Multi UP.</data>
+      <data key="GeoLocation">81° 21' 34", 28° 12' 59"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">1</data>
+      <data key="caseid">0</data>
+      <data key="captureid">1</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">03/12/2011 6:18:05 PM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-7" target="Devices-1" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-7:Devices-1</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2170">
+      <data key="id">2170</data>
+      <data key="number">LOC-2170</data>
+      <data key="locationname">UP 004.GENERIC USER POINT</data>
+      <data key="GeoLocation">80° 25' 35", 27° 49' 5"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2170" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2170:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2171">
+      <data key="id">2171</data>
+      <data key="number">LOC-2171</data>
+      <data key="locationname">ANOTHER POINT.2/11/1980</data>
+      <data key="GeoLocation">79° 59' 31", 27° 59' 55"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2171" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2171:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2172">
+      <data key="id">2172</data>
+      <data key="number">LOC-2172</data>
+      <data key="locationname">NEW POINT.NEW POINT</data>
+      <data key="GeoLocation">80° 10' 0", 28° 4' 60"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2172" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2172:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2173">
+      <data key="id">2173</data>
+      <data key="number">LOC-2173</data>
+      <data key="locationname">3RD POINT.POINT</data>
+      <data key="GeoLocation">80° 5' 0", 28° 11' 0"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2173" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2173:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2174">
+      <data key="id">2174</data>
+      <data key="number">LOC-2174</data>
+      <data key="locationname">WPT003.</data>
+      <data key="GeoLocation">80° 22' 2", 27° 38' 52"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2174" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2174:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2175">
+      <data key="id">2175</data>
+      <data key="number">LOC-2175</data>
+      <data key="locationname">WPT004.</data>
+      <data key="GeoLocation">80° 15' 5", 27° 28' 44"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2175" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2175:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2176">
+      <data key="id">2176</data>
+      <data key="number">LOC-2176</data>
+      <data key="locationname">WAYPOINT 128.</data>
+      <data key="GeoLocation">80° 1' 29", 27° 47' 39"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2176" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2176:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2177">
+      <data key="id">2177</data>
+      <data key="number">LOC-2177</data>
+      <data key="locationname">WAYPOINT 127.</data>
+      <data key="GeoLocation">79° 57' 18", 27° 49' 49"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2177" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2177:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2178">
+      <data key="id">2178</data>
+      <data key="number">LOC-2178</data>
+      <data key="locationname">UP 147.GENERIC USER POINT</data>
+      <data key="GeoLocation">80° 5' 49", 26° 56' 42"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2178" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2178:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2179">
+      <data key="id">2179</data>
+      <data key="number">LOC-2179</data>
+      <data key="locationname">UP 148.GENERIC USER POINT</data>
+      <data key="GeoLocation">80° 36' 26", 26° 59' 3"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2179" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2179:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2180">
+      <data key="id">2180</data>
+      <data key="number">LOC-2180</data>
+      <data key="locationname">UP 149.GENERIC USER POINT</data>
+      <data key="GeoLocation">80° 49' 38", 27° 14' 56"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2180" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2180:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2181">
+      <data key="id">2181</data>
+      <data key="number">LOC-2181</data>
+      <data key="locationname">UP 150.GENERIC USER POINT</data>
+      <data key="GeoLocation">80° 54' 42", 27° 46' 3"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2181" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2181:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2182">
+      <data key="id">2182</data>
+      <data key="number">LOC-2182</data>
+      <data key="locationname">UP 151.GENERIC USER POINT</data>
+      <data key="GeoLocation">80° 26' 18", 27° 44' 48"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2182" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2182:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2183">
+      <data key="id">2183</data>
+      <data key="number">LOC-2183</data>
+      <data key="locationname">UP 152.GENERIC USER POINT</data>
+      <data key="GeoLocation">82° 25' 34", 27° 58' 25"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2183" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2183:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2184">
+      <data key="id">2184</data>
+      <data key="number">LOC-2184</data>
+      <data key="locationname">UP 153.GENERIC USER POINT</data>
+      <data key="GeoLocation">81° 47' 38", 27° 44' 48"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2184" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2184:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2185">
+      <data key="id">2185</data>
+      <data key="number">LOC-2185</data>
+      <data key="locationname">UP 154.GENERIC USER POINT</data>
+      <data key="GeoLocation">81° 31' 37", 27° 45' 31"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2185" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2185:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2186">
+      <data key="id">2186</data>
+      <data key="number">LOC-2186</data>
+      <data key="locationname">UP 155.GENERIC USER POINT</data>
+      <data key="GeoLocation">81° 47' 26", 27° 29' 31"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2186" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2186:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2187">
+      <data key="id">2187</data>
+      <data key="number">LOC-2187</data>
+      <data key="locationname">UP 156.GENERIC USER POINT</data>
+      <data key="GeoLocation">82° 7' 31", 27° 35' 49"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2187" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2187:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2188">
+      <data key="id">2188</data>
+      <data key="number">LOC-2188</data>
+      <data key="locationname">UP 157.GENERIC USER POINT</data>
+      <data key="GeoLocation">82° 26' 11", 27° 42' 49"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2188" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2188:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2189">
+      <data key="id">2189</data>
+      <data key="number">LOC-2189</data>
+      <data key="locationname">UP 158.GENERIC USER POINT</data>
+      <data key="GeoLocation">82° 29' 38", 27° 17' 38"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2189" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2189:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2190">
+      <data key="id">2190</data>
+      <data key="number">LOC-2190</data>
+      <data key="locationname">UP 159.GENERIC USER POINT</data>
+      <data key="GeoLocation">82° 5' 17", 26° 59' 36"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2190" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2190:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+    <node id="Locations-2191">
+      <data key="id">2191</data>
+      <data key="number">LOC-2191</data>
+      <data key="locationname">UP 160.GENERIC USER POINT</data>
+      <data key="GeoLocation">82° 18' 53", 26° 56' 31"</data>
+      <data key="elevation">0</data>
+      <data key="fileid">51</data>
+      <data key="caseid">0</data>
+      <data key="captureid">15</data>
+      <data key="Device Name"> - </data>
+      <data key="Capture Time">04/12/2011 4:22:44 AM</data>
+      <data key="node-prop-BackgroundColor">#88000044</data>
+      <data key="node-prop-ImageSource">/Berico.SnagL;component/Resources/Icons/location.png</data>
+    </node>
+    <edge source="Locations-2191" target="Devices-15" directed="true">
+      <data key="edge-prop-Thickness">5</data>
+      <data key="edge-prop-Color">#FF000088</data>
+      <data key="edge-attr-Link-val">Locations-2191:Devices-15</data>
+      <data key="edge-prop-DisplayValue" />
+    </edge>
+  </graph>
+</graphml>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="loggerLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEBUG" />
+      <xs:enumeration value="RELEASE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="applicationModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Evaluation" />
+      <xs:enumeration value="Release" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="appSettings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="add">
+                <xs:complexType>
+                  <xs:attribute name="key" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="externalResources">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="externalResource">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="optional" />
+                  <xs:attribute name="path" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="extensions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="extension">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="optional" />
+                  <xs:attribute name="path" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="graphLabel">
+          <xs:complexType>
+            <xs:attribute name="background" type="xs:string" use="optional" />
+            <xs:attribute name="foreground" type="xs:string" use="optional" />
+            <xs:attribute name="text" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="live">
+          <xs:complexType>
+            <xs:attribute name="autostart" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="loggerProvider">
+          <xs:complexType>
+            <xs:attribute name="level" type="loggerLevelType" use="required" />
+            <xs:attribute name="provider" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="preferencesProvider">
+          <xs:complexType>
+            <xs:attribute name="provider" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="theme">
+          <xs:complexType>
+            <xs:attribute name="value" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="applicationMode" default="Evaluation" type="applicationModeType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="isToolbarHidden" default="false" type="xs:boolean" />
+        <xs:element minOccurs="0" maxOccurs="1" name="isToolPanelHidden" default="false" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

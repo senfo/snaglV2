@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graphml xmlns:berico="http://graph.bericotechnologies.com/xmlns" xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="node-attr-coordinates-desc" for="node" attr.name="node-attr-coordinates-desc" attr.type="string" />
+  <key id="node-attr-coordinates-val" for="node" attr.name="node-attr-coordinates-val" attr.type="string" />
+  <key id="node-attr-id-desc" for="node" attr.name="node-attr-id-desc" attr.type="string" />
+  <key id="node-attr-id-val" for="node" attr.name="node-attr-id-val" attr.type="string" />
+  <key id="node-attr-devicetype-desc" for="node" attr.name="node-attr-devicetype-desc" attr.type="string" />
+  <key id="node-attr-devicetype-val" for="node" attr.name="node-attr-devicetype-val" attr.type="string" />
+  <key id="node-attr-name-desc" for="node" attr.name="node-attr-name-desc" attr.type="string" />
+  <key id="node-attr-name-val" for="node" attr.name="node-attr-name-val" attr.type="string" />
+  <key id="node-attr-number-desc" for="node" attr.name="node-attr-number-desc" attr.type="string" />
+  <key id="node-attr-number-val" for="node" attr.name="node-attr-number-val" attr.type="string" />
+  <key id="node-attr-status-desc" for="node" attr.name="node-attr-status-desc" attr.type="string" />
+  <key id="node-attr-status-val" for="node" attr.name="node-attr-status-val" attr.type="string" />
+  <graph id="LinkAnalysisInheritedAnalytics" edgedefault="directed">
+    <node id="Cases-2">
+      <data key="node-attr-id-desc">{"Name":"ID","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.NumericSimilarityMeasure","SemanticType":128,"Visible":true}</data>
+      <data key="node-attr-id-val">2</data>
+      <data key="node-attr-number-desc">{"Name":"Number","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.LevenshteinDistanceStringSimilarityMeasure","SemanticType":64,"Visible":true}</data>
+      <data key="node-attr-number-val">Snagl Group</data>
+      <data key="node-attr-status-desc">{"Name":"Status","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.NumericSimilarityMeasure","SemanticType":128,"Visible":true}</data>
+      <data key="node-attr-status-val">1</data>
+    </node>
+    <node id="Cases-1">
+      <data key="node-attr-id-desc">{"Name":"ID","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.NumericSimilarityMeasure","SemanticType":128,"Visible":true}</data>
+      <data key="node-attr-id-val">1</data>
+      <data key="node-attr-number-desc">{"Name":"Number","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.LevenshteinDistanceStringSimilarityMeasure","SemanticType":64,"Visible":true}</data>
+      <data key="node-attr-number-val">TestGroup</data>
+      <data key="node-attr-status-desc">{"Name":"Status","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.NumericSimilarityMeasure","SemanticType":128,"Visible":true}</data>
+      <data key="node-attr-status-val">1</data>
+    </node>
+    <node id="Devices-1">
+      <data key="node-attr-id-desc">{"Name":"ID","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.NumericSimilarityMeasure","SemanticType":128,"Visible":true}</data>
+      <data key="node-attr-id-val">1</data>
+      <data key="node-attr-number-desc">{"Name":"Number","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.LevenshteinDistanceStringSimilarityMeasure","SemanticType":64,"Visible":true}</data>
+      <data key="node-attr-number-val">DEV-0001</data>
+      <data key="node-attr-name-desc">{"Name":"Name","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.LevenshteinDistanceStringSimilarityMeasure","SemanticType":64,"Visible":true}</data>
+      <data key="node-attr-name-val">Garmin-GPSmap421</data>
+      <data key="node-attr-devicetype-desc">{"Name":"Device Type","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.NumericSimilarityMeasure","SemanticType":128,"Visible":true}</data>
+      <data key="node-attr-devicetype-val">18</data>
+      <data key="manufacturer">Garmin</data>
+      <data key="model">GPSmap 421</data>
+      <data key="interfacetype">42</data>
+      <data key="uniquenumber">3810296644</data>
+      <data key="uniquenumbertype">41</data>
+      <data key="caseid">2</data>
+      <data key="Case Number">Snagl Group</data>
+    </node>
+    <edge source="Devices-1" target="Cases-2">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF999999</data>
+    </edge>
+    <node id="Devices-43">
+      <data key="id">43</data>
+      <data key="number">DEV-0043</data>
+      <data key="name">Garmin-GPSmap421</data>
+      <data key="devicetype">18</data>
+      <data key="manufacturer">Garmin</data>
+      <data key="model">GPSmap 421</data>
+      <data key="interfacetype">42</data>
+      <data key="uniquenumber">3810296644</data>
+      <data key="uniquenumbertype">41</data>
+      <data key="caseid">1</data>
+      <data key="Case Number">TestGroup</data>
+    </node>
+    <edge source="Devices-43" target="Cases-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF999999</data>
+    </edge>
+    <node id="Devices-42">
+      <data key="id">42</data>
+      <data key="number">FIL-0042</data>
+      <data key="name">adirondaks</data>
+      <data key="devicetype">21</data>
+      <data key="interfacetype">24</data>
+      <data key="uniquenumbertype">47</data>
+      <data key="caseid">1</data>
+      <data key="Case Number">TestGroup</data>
+    </node>
+    <edge source="Devices-42" target="Cases-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF999999</data>
+    </edge>
+    <node id="TrackLogs-1">
+      <data key="id">1</data>
+      <data key="number">TRK-0001</data>
+      <data key="name">Snowmobile1</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="TrackLogs-1" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-2">
+      <data key="id">2</data>
+      <data key="number">TRK-0002</data>
+      <data key="name">Snowmobile2</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="TrackLogs-2" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-3">
+      <data key="id">3</data>
+      <data key="number">TRK-0003</data>
+      <data key="name">Snowmobile1</data>
+      <data key="fileid">6</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="TrackLogs-3" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-4">
+      <data key="id">4</data>
+      <data key="number">TRK-0004</data>
+      <data key="name">Snowmobile2</data>
+      <data key="fileid">6</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="TrackLogs-4" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-109">
+      <data key="id">109</data>
+      <data key="number">TRK-0109</data>
+      <data key="name">20111023_Adirondaks_Mt_Jo</data>
+      <data key="fileid">310</data>
+      <data key="caseid">1</data>
+      <data key="captureid">42</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">adirondaks</data>
+      <data key="Capture Time">24/10/2011 4:00:49 AM</data>
+    </node>
+    <edge source="TrackLogs-109" target="Devices-42">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-110">
+      <data key="id">110</data>
+      <data key="number">TRK-0110</data>
+      <data key="name">20112022_Adirondak_Algonquin</data>
+      <data key="fileid">310</data>
+      <data key="caseid">1</data>
+      <data key="captureid">42</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">adirondaks</data>
+      <data key="Capture Time">24/10/2011 4:00:49 AM</data>
+    </node>
+    <edge source="TrackLogs-110" target="Devices-42">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-111">
+      <data key="id">111</data>
+      <data key="number">TRK-0111</data>
+      <data key="name">Snowmobile1</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="TrackLogs-111" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="TrackLogs-112">
+      <data key="id">112</data>
+      <data key="number">TRK-0112</data>
+      <data key="name">Snowmobile2</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="TrackLogs-112" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF880000</data>
+    </edge>
+    <node id="Routes-1">
+      <data key="id">1</data>
+      <data key="number">ROU-0001</data>
+      <data key="name">Anse a David1 to Pointe a Passe-Pierre</data>
+      <data key="startlocationid">13</data>
+      <data key="endlocationid">12</data>
+      <data key="starttime">09/11/2009 10:47:37 PM</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Routes-1" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF008800</data>
+    </edge>
+    <node id="Routes-2">
+      <data key="id">2</data>
+      <data key="number">ROU-0002</data>
+      <data key="name">Anse a David to Pointe a Passe-Pierre</data>
+      <data key="startlocationid">1</data>
+      <data key="endlocationid">12</data>
+      <data key="fileid">7</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Routes-2" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF008800</data>
+    </edge>
+    <node id="Routes-54">
+      <data key="id">54</data>
+      <data key="number">ROU-0054</data>
+      <data key="name">Anse a David1 to Pointe a Passe-Pierre</data>
+      <data key="startlocationid">391</data>
+      <data key="endlocationid">390</data>
+      <data key="starttime">09/11/2009 10:47:37 PM</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Routes-54" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF008800</data>
+    </edge>
+    <node id="Locations-1">
+      <data key="id">1</data>
+      <data key="number">LOC-0001</data>
+      <data key="locationname">Anse a David</data>
+      <data key="node-attr-coordinates-desc">{"Name":"Coordinate","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.GeospatialSimilarityMeasure","SemanticType":16,"Visible":true}</data>
+      <data key="node-attr-coordinates-val">48°8′38.19268316″N,-69°50′32.454563677″W</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-1" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-2">
+      <data key="id">2</data>
+      <data key="number">LOC-0002</data>
+      <data key="locationname">Anse Au Cheval</data>
+      <data key="node-attr-coordinates-desc">{"Name":"Coordinate","PreferredSimilarityMeasure":"Berico.SnagL.Infrastructure.Similarity.GeospatialSimilarityMeasure","SemanticType":16,"Visible":true}</data>
+      <data key="node-attr-coordinates-val">48°14′2.25731046″N,-69°58′23.3106″W</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-2" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-3">
+      <data key="id">3</data>
+      <data key="number">LOC-0003</data>
+      <data key="locationname">Anse Aux Petites Iles</data>
+      <data key="latitude">48.160904198885</data>
+      <data key="longitude">-69.8773919697851</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-3" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-4">
+      <data key="id">4</data>
+      <data key="number">LOC-0004</data>
+      <data key="locationname">Anse de Sable</data>
+      <data key="latitude">48.3876513596624</data>
+      <data key="longitude">-70.647668838501</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-4" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-5">
+      <data key="id">5</data>
+      <data key="number">LOC-0005</data>
+      <data key="locationname">Anse de Tabatiere</data>
+      <data key="latitude">48.2688617706299</data>
+      <data key="longitude">-70.1997184753418</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-5" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-6">
+      <data key="id">6</data>
+      <data key="number">LOC-0006</data>
+      <data key="locationname">Anse Des Ilets Rouge</data>
+      <data key="latitude">48.2603645324707</data>
+      <data key="longitude">-69.9950981140137</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-6" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-7">
+      <data key="id">7</data>
+      <data key="number">LOC-0007</data>
+      <data key="locationname">Anse Du Portage</data>
+      <data key="latitude">48.2797622680664</data>
+      <data key="longitude">-70.1652145385742</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-7" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-8">
+      <data key="id">8</data>
+      <data key="number">LOC-0008</data>
+      <data key="locationname">Baie de la Trinite</data>
+      <data key="latitude">48.372974395752</data>
+      <data key="longitude">-70.3901339415461</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-8" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-9">
+      <data key="id">9</data>
+      <data key="number">LOC-0009</data>
+      <data key="locationname">Baie Eternite</data>
+      <data key="latitude">48.3065413590521</data>
+      <data key="longitude">-70.3195381164551</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-9" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-10">
+      <data key="id">10</data>
+      <data key="number">LOC-0010</data>
+      <data key="locationname">Camping Tadoussac</data>
+      <data key="latitude">48.1502998340875</data>
+      <data key="longitude">-69.7137877810746</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-10" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-11">
+      <data key="id">11</data>
+      <data key="number">LOC-0011</data>
+      <data key="locationname">Cap Sainte-Marguerite</data>
+      <data key="latitude">48.2402802351862</data>
+      <data key="longitude">-69.9544143676758</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-11" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-12">
+      <data key="id">12</data>
+      <data key="number">LOC-0012</data>
+      <data key="locationname">Pointe a Passe-Pierre</data>
+      <data key="latitude">48.1607580184937</data>
+      <data key="longitude">-69.8363543394953</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-12" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-13">
+      <data key="id">13</data>
+      <data key="number">LOC-0013</data>
+      <data key="locationname">Anse a David1</data>
+      <data key="latitude">48.143942411989</data>
+      <data key="longitude">-69.8423484899104</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-13" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-14">
+      <data key="id">14</data>
+      <data key="number">LOC-0014</data>
+      <data key="locationname">Anse Des Ilets Rouge1</data>
+      <data key="latitude">48.2603645324707</data>
+      <data key="longitude">-69.9950981140137</data>
+      <data key="elevation">0</data>
+      <data key="fileid">4</data>
+      <data key="caseid">2</data>
+      <data key="captureid">1</data>
+      <data key="Case Number">Snagl Group</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">19/10/2011 3:25:51 AM</data>
+    </node>
+    <edge source="Locations-14" target="Devices-1">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-379">
+      <data key="id">379</data>
+      <data key="number">LOC-0379</data>
+      <data key="locationname">Anse a David</data>
+      <data key="latitude">48.143942411989</data>
+      <data key="longitude">-69.8423484899104</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-379" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-380">
+      <data key="id">380</data>
+      <data key="number">LOC-0380</data>
+      <data key="locationname">Anse Au Cheval</data>
+      <data key="latitude">48.2339603640139</data>
+      <data key="longitude">-69.973142137751</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-380" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-381">
+      <data key="id">381</data>
+      <data key="number">LOC-0381</data>
+      <data key="locationname">Anse Aux Petites Iles</data>
+      <data key="latitude">48.160904198885</data>
+      <data key="longitude">-69.8773919697851</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-381" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-382">
+      <data key="id">382</data>
+      <data key="number">LOC-0382</data>
+      <data key="locationname">Anse de Sable</data>
+      <data key="latitude">48.3876513596624</data>
+      <data key="longitude">-70.647668838501</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-382" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-383">
+      <data key="id">383</data>
+      <data key="number">LOC-0383</data>
+      <data key="locationname">Anse de Tabatiere</data>
+      <data key="latitude">48.2688617706299</data>
+      <data key="longitude">-70.1997184753418</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-383" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-384">
+      <data key="id">384</data>
+      <data key="number">LOC-0384</data>
+      <data key="locationname">Anse Des Ilets Rouge</data>
+      <data key="latitude">48.2603645324707</data>
+      <data key="longitude">-69.9950981140137</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-384" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-385">
+      <data key="id">385</data>
+      <data key="number">LOC-0385</data>
+      <data key="locationname">Anse Du Portage</data>
+      <data key="latitude">48.2797622680664</data>
+      <data key="longitude">-70.1652145385742</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-385" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-386">
+      <data key="id">386</data>
+      <data key="number">LOC-0386</data>
+      <data key="locationname">Baie de la Trinite</data>
+      <data key="latitude">48.372974395752</data>
+      <data key="longitude">-70.3901339415461</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-386" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-387">
+      <data key="id">387</data>
+      <data key="number">LOC-0387</data>
+      <data key="locationname">Baie Eternite</data>
+      <data key="latitude">48.3065413590521</data>
+      <data key="longitude">-70.3195381164551</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-387" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-388">
+      <data key="id">388</data>
+      <data key="number">LOC-0388</data>
+      <data key="locationname">Camping Tadoussac</data>
+      <data key="latitude">48.1502998340875</data>
+      <data key="longitude">-69.7137877810746</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-388" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-389">
+      <data key="id">389</data>
+      <data key="number">LOC-0389</data>
+      <data key="locationname">Cap Sainte-Marguerite</data>
+      <data key="latitude">48.2402802351862</data>
+      <data key="longitude">-69.9544143676758</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-389" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-390">
+      <data key="id">390</data>
+      <data key="number">LOC-0390</data>
+      <data key="locationname">Pointe a Passe-Pierre</data>
+      <data key="latitude">48.1607580184937</data>
+      <data key="longitude">-69.8363543394953</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-390" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-391">
+      <data key="id">391</data>
+      <data key="number">LOC-0391</data>
+      <data key="locationname">Anse a David1</data>
+      <data key="latitude">48.143942411989</data>
+      <data key="longitude">-69.8423484899104</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-391" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+    <node id="Locations-392">
+      <data key="id">392</data>
+      <data key="number">LOC-0392</data>
+      <data key="locationname">Anse Des Ilets Rouge1</data>
+      <data key="latitude">48.2603645324707</data>
+      <data key="longitude">-69.9950981140137</data>
+      <data key="elevation">0</data>
+      <data key="fileid">317</data>
+      <data key="caseid">1</data>
+      <data key="captureid">43</data>
+      <data key="Case Number">TestGroup</data>
+      <data key="Device Name">Garmin-GPSmap421</data>
+      <data key="Device Manufacturer">Garmin</data>
+      <data key="Capture Time">24/10/2011 10:17:36 AM</data>
+    </node>
+    <edge source="Locations-392" target="Devices-43">
+      <data key="edge-prop-Thickness">2</data>
+      <data key="edge-prop-Color">#FF000088</data>
+    </edge>
+  </graph>
+</graphml>

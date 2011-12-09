@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c12dbbd9-8ca0-481b-8e31-f2e03415c047"
+  name="Collections"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="411faff1-a703-4aae-bfa6-7627e1fdcd73"
+      handle="viewcode://./CodeSchema_Namespace?Namespace=System.Collections"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="24404175-30d8-4f97-a9e3-105f72786d26"
+        name="IEnumerator"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="d885c44c-94b2-467e-ada5-6adcb3ff7626"
+            handle="viewcode://./CodeSchema_Interface?Assembly=&quot;file:///c:/Program Files/Reference Assemblies/Microsoft/Framework/Silverlight/v4.0/mscorlib.dll&quot; Namespace=System.Collections Type=IEnumerator"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ec09e221-9274-4e23-adcc-dac185c53903"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2c47422c-b090-4347-b118-a9c038aa116e">
+                <propertyInstance
+                  Id="d91b0627-b999-4c8d-a348-3e14559fb9d2"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0d1b9891-5a34-42e1-8764-36b749007654">
+                <propertyInstance
+                  Id="bcf823df-33aa-4723-bbf2-8b8b4b482a31"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b220a571-6a1b-4560-be96-4b5c16d5537e">
+                <propertyInstance
+                  Id="7255e994-f6f1-4230-a722-c05a5e698964"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c1f0acee-845e-4668-acf7-4d1027b4ae8d">
+                <propertyInstance
+                  Id="f47ff5d7-724f-47c2-8d91-1bbe7559be70"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="730927bc-ad0d-4a99-a6c9-9c2792470aae"
+        LastKnownName="Generic"
+        LastKnownLocation="Package6_1459.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
