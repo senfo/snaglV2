@@ -34,14 +34,14 @@ namespace Berico.SnagL.Infrastructure.Clustering
         private string scope = string.Empty;
         private double similarityThreshold = double.NaN;
 
-        private ClusterHighlights clusterHighlights = null;
-        private Dictionary<INode, List<SimilarityEdgeViewModel>> attributeEdgeCache = new Dictionary<INode, List<SimilarityEdgeViewModel>>();
-        private Dictionary<IEdge, double> edgeSimilarityValues = null;
-        private List<SimilarityDataEdge> edgesToAdd = null;
-        private GlobalAttributeCollection globalAttributeCollection = null;
-        private AttributeSimilarityManager attributeSimilarityManager = null;
+        private Dictionary<IEdge, double> edgeSimilarityValues;
+        private List<SimilarityDataEdge> edgesToAdd;
+        private GlobalAttributeCollection globalAttributeCollection;
         private Queue<INode> nodesToBeAdded = new Queue<INode>();
-        private BackgroundWorker worker = null;
+        private readonly AttributeSimilarityManager attributeSimilarityManager;
+        private readonly BackgroundWorker worker;
+        private readonly ClusterHighlights clusterHighlights;
+        private readonly Dictionary<INode, List<SimilarityEdgeViewModel>> attributeEdgeCache = new Dictionary<INode, List<SimilarityEdgeViewModel>>();
 
         /// <summary>
         /// Create a new instance of the SimilarityClustering class

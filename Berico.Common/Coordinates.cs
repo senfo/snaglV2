@@ -136,7 +136,8 @@ namespace Berico.Common
             // - 38°47’44”N 077°36’50”W
             // - 38 47 44 N 77 36 50 W
             // - 38 47 44.23 N 77 36 50.77 W
-            const string longlatParseString = "^(?<lat_degrees>\\d{2})[°]?\\s*(?<lat_minutes>\\d{2})[’']?\\s*(?<lat_seconds>[\\d\\.]+)[”\\\"]?\\s*(?<lat_direction>[NnSs]{1})[\\s,_-]?(?<lng_degrees>\\d{2,3})[°]?\\s*(?<lng_minutes>\\d{2})[’']?\\s*(?<lng_seconds>[\\d\\.]+)[”\\\"]?\\s*(?<lng_direction>[EeWw]{1})$";
+            //const string longlatParseString = "^(?<lat_degrees>\\d{2})[°]?\\s*(?<lat_minutes>\\d{2})[’']?\\s*(?<lat_seconds>[\\d\\.]+)[”\\\"]?\\s*(?<lat_direction>[NnSs]{1})[\\s,_-]?(?<lng_degrees>\\d{2,3})[°]?\\s*(?<lng_minutes>\\d{2})[’']?\\s*(?<lng_seconds>[\\d\\.]+)[”\\\"]?\\s*(?<lng_direction>[EeWw]{1})$";
+            const string longlatParseString = @"^(?<lat_degrees>\d{2})[°]?\s*(?<lat_minutes>\d{2})[’']?\s*(?<lat_seconds>[\d\.]+)[”\""]?\s*(?<lat_direction>[NnSs]{1})[\s,_-]?(?<lng_degrees>\d{2,3})[°]?\s*(?<lng_minutes>\d{2})[’']?\s*(?<lng_seconds>[\d\.]+)[”\""]?\s*(?<lng_direction>[EeWw]{1})$";
             Regex regex = new Regex(longlatParseString);
 
             // Check if the regex matches the provided value
