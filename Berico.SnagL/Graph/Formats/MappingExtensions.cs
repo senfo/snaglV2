@@ -91,7 +91,6 @@ namespace Berico.SnagL.Infrastructure.Data.Formats
             }
 
             NodeViewModelBase uiNodeVM = NodeViewModelBase.GetNodeViewModel(uiNodeType, uiNode, graphComponents.Scope);
-            graphComponents.AddNodeViewModel(uiNodeVM);
 
             // Properties
             if (uiNodeType == NodeTypes.Icon)
@@ -105,8 +104,8 @@ namespace Berico.SnagL.Infrastructure.Data.Formats
 
             uiNodeVM.Description = objNode.Description;
             uiNodeVM.DisplayValue = objNode.Label;
-            //uiNodeVM.Width = objNode.Dimension.Width;
-            //uiNodeVM.Height = objNode.Dimension.Height;
+            uiNodeVM.Width = objNode.Dimension.Width;
+            uiNodeVM.Height = objNode.Dimension.Height;
             uiNodeVM.Position = objNode.Position;
             uiNodeVM.IsHidden = objNode.IsHidden;
 
@@ -115,6 +114,19 @@ namespace Berico.SnagL.Infrastructure.Data.Formats
 
             SolidColorBrush uiSelectionColorBrush = new SolidColorBrush(objNode.SelectionColor);
             uiNodeVM.SelectionColor = uiSelectionColorBrush;
+
+            if (uiNodeVM.Height == 0)
+            {
+                uiNodeVM.Height = 45;
+            }
+
+            if (uiNodeVM.Width == 0)
+            {
+                uiNodeVM.Width = 45;
+            }
+
+            // Add the node to the graph
+            graphComponents.AddNodeViewModel(uiNodeVM);
 
             // Attributes
             foreach (KeyValuePair<string, AttributeMapData> objNodeAttrKVP in objNode.Attributes)

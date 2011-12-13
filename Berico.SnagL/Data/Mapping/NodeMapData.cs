@@ -23,10 +23,6 @@ namespace Berico.SnagL.Infrastructure.Data.Mapping
         /// </summary>
         public string Id { get; set; }
 
-
-
-        // Properties
-
         /// <summary>
         /// indicates whether the node is visible on the graph
         /// </summary>
@@ -61,8 +57,6 @@ namespace Berico.SnagL.Infrastructure.Data.Mapping
         /// The Width and Height of the node (this could effect how the node appears on the graph)
         /// </summary>
         public Size Dimension { get; set; }
-
-
 
         // Attributes
         public IDictionary<string, AttributeMapData> Attributes;

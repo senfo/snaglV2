@@ -257,75 +257,74 @@ namespace Berico.SnagL.Infrastructure.Clustering
 
         #region Events and Event Handlers
 
-            /// <summary>
-            /// Handles the DoWork event
-            /// </summary>
-            /// <param name="sender">The object that fired the event</param>
-            /// <param name="e">The arguments for the event</param>
-            private void DoWorkHandler(object sender, DoWorkEventArgs e)
-            {
-                // Actualy do the clustering
-                edgesToAdd = new List<SimilarityDataEdge>();
+        /// <summary>
+        /// Handles the DoWork event
+        /// </summary>
+        /// <param name="sender">The object that fired the event</param>
+        /// <param name="e">The arguments for the event</param>
+        private void DoWorkHandler(object sender, DoWorkEventArgs e)
+        {
+            // Actualy do the clustering
+            edgesToAdd = new List<SimilarityDataEdge>();
 
-                // Actually cluster the nodes
-                ClusterNodes();
-            }
+            // Actually cluster the nodes
+            ClusterNodes();
+        }
 
-            /// <summary>
-            /// Handles the RunWorkerCompleted event
-            /// </summary>
-            /// <param name="sender">The object that fired the event</param>
-            /// <param name="e">The arguments for the event</param>
-            private void RunWorkerCompletedHandler(object sender, RunWorkerCompletedEventArgs e)
+        /// <summary>
+        /// Handles the RunWorkerCompleted event
+        /// </summary>
+        /// <param name="sender">The object that fired the event</param>
+        /// <param name="e">The arguments for the event</param>
+        private void RunWorkerCompletedHandler(object sender, RunWorkerCompletedEventArgs e)
+        {
+            // Check to see if we have any edges to be added
+            if (edgesToAdd.Count > 0)
             {
-                // Check to see if we have any edges to be added
-                if (edgesToAdd.Count > 0)
+                // Loop over the edges to be added
+                foreach (SimilarityDataEdge edge in edgesToAdd)
                 {
-                    // Loop over the edges to be added
-                    foreach (SimilarityDataEdge edge in edgesToAdd)
-                    {
-                        // Create the edge view model and add it to the graph
-                        GenerateSimilarityEdgeVM(edge);
-                    }
-                }
-
-                // Fire the ClusteringCompleted event
-                DispatcherHelper.UIDispatcher.BeginInvoke(() =>
-                    SnaglEventAggregator.DefaultInstance.GetEvent<ClusteringCompletedEvent>().Publish(new ClusteringCompletedEventArgs(edgeSimilarityValues.Values.Where(value => value >= MINIMUM_SIMILARITY_THRESHOLD), this.similarityThreshold, true))
-                    );
-
-                LayoutGraph(InternalLayouts.LinLog);
-
-            }
-
-            /// <summary>
-            /// Handles the ProgressChanged event.  We are using this
-            /// to remove existing similarity edges as each node is
-            /// processed.
-            /// </summary>
-            /// <param name="sender">The object that fired the event</param>
-            /// <param name="e">Arguments for the event</param>
-            void ProgressChangedHandler(object sender, ProgressChangedEventArgs e)
-            {
-                // Determine if the user state object provided is a Node or not
-                if (e.UserState is Node)
-                {
-                    // Remove any existing similarity edges 
-                    // for the current node
-                    RemoveSimilarityEdges(e.UserState as Node);
+                    // Create the edge view model and add it to the graph
+                    GenerateSimilarityEdgeVM(edge);
                 }
             }
 
-            /// <summary>
-            /// Handles the LayoutFinished event
-            /// </summary>
-            /// <param name="sender">The object that fired the event</param>
-            /// <param name="e">Arguments for the event</param>
-            private void LayoutFinishedHandler(object sender, EventArgs e)
+            // Fire the ClusteringCompleted event
+            DispatcherHelper.UIDispatcher.BeginInvoke(() =>
+                SnaglEventAggregator.DefaultInstance.GetEvent<ClusteringCompletedEvent>().Publish(new ClusteringCompletedEventArgs(edgeSimilarityValues.Values.Where(value => value >= MINIMUM_SIMILARITY_THRESHOLD), this.similarityThreshold, true))
+                );
+
+            LayoutGraph(InternalLayouts.LinLog);
+        }
+
+        /// <summary>
+        /// Handles the ProgressChanged event.  We are using this
+        /// to remove existing similarity edges as each node is
+        /// processed.
+        /// </summary>
+        /// <param name="sender">The object that fired the event</param>
+        /// <param name="e">Arguments for the event</param>
+        void ProgressChangedHandler(object sender, ProgressChangedEventArgs e)
+        {
+            // Determine if the user state object provided is a Node or not
+            if (e.UserState is Node)
             {
-                // Draw the highlights
-                clusterHighlights.HighlightClusters();
+                // Remove any existing similarity edges 
+                // for the current node
+                RemoveSimilarityEdges(e.UserState as Node);
             }
+        }
+
+        /// <summary>
+        /// Handles the LayoutFinished event
+        /// </summary>
+        /// <param name="sender">The object that fired the event</param>
+        /// <param name="e">Arguments for the event</param>
+        private void LayoutFinishedHandler(object sender, EventArgs e)
+        {
+            // Draw the highlights
+            clusterHighlights.HighlightClusters();
+        }
 
         #endregion
     }

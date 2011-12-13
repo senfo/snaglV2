@@ -110,7 +110,7 @@
         <Border Grid.Row="0" x:Name="SelectionHighlight" MaxWidth="70" MaxHeight="70"  Visibility="Collapsed" BorderBrush="{Binding SelectionColor,FallbackValue=#FF4A75A9}" BorderThickness="4" />
 
         <!-- Represents some image for the node -->
-        <Image Grid.Row="0" Height="45" Width="45" Margin="10" Source="{Binding ImageSource,FallbackValue=/Berico.SnagL;component/Resources/Icons/person.png}" />
+        <Image Grid.Row="0" Height="{Binding Height}" Width="{Binding Width}" Margin="10" Source="{Binding ImageSource,FallbackValue=/Berico.SnagL;component/Resources/Icons/person.png}" />
     </Grid>
 
 </UserControl>
